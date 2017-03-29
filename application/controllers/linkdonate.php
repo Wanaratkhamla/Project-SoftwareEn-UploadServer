@@ -37,12 +37,17 @@ class linkdonate extends CI_Controller
   {
           $IDCard = $this->session->userdata('id');
           $donateName = htmlentities($_POST["donateName"]);
-          $donateSize = htmlentities($_POST["donateSize"]);
+          $donateLength = htmlentities($_POST["donateLength"]);
+          $donatewidth = htmlentities($_POST["donatewidth"]);
           $donateweight = htmlentities($_POST["donateweight"]);
           $donateEA = htmlentities($_POST['donateEA']);
+          $donatecondition = htmlentities($_POST['donatecondition']);
           $donatecolor = htmlentities($_POST['donatecolor']);
           $donateType = htmlentities($_POST['donateType']);
           $donateDetail = htmlentities($_POST['donateDetail']);
+          $donateTypesend = htmlentities($_POST['donateTypesend']);
+          $donatesendDetail = htmlentities($_POST['donatesendDetail']);
+
 
           $new_name = time().rand();
           $config['file_name'] = $new_name;
@@ -53,22 +58,44 @@ class linkdonate extends CI_Controller
           $config['max_height']           = 768;
           $this->load->library('upload', $config);
 
-            if (($_POST["donateName"] == null) || ($_POST["donateSize"] == null) ||
-            ($_POST["donateweight"] == null) || ($_POST['donateEA'] == null) || ($_POST['donatecolor'] == null)
+            if (($_POST["donateName"] == null) || ($_POST["donateLength"] == null) || ($_POST["donatewidth"] == null) || ($_POST["donateTypesend"] == null) ||
+            ($_POST["donateweight"] == null) || ($_POST['donateEA'] == null) || ($_POST['donatecolor'] == null) || ($_POST['donatecondition'] == null)
             || ($_POST['donateType'] == null) || ($_POST['donateDetail'] == null)) //check null form input ?
             {
-              $check['error'] = 1;
-              $this->load->view('donorpage',$check);
+                    $check['error'] = 1;
+                    $check['name'] = $this->session->userdata('Fname');
+                    $this->load->view('donorpage',$check);
             }else{
-              if ($this->upload->do_upload('donatePathIMG')) //check upload image ?
-              {
-                $imagepath = $new_name . $this->upload->data('file_ext');
-                $this->donate->Insertdonate($IDCard, $donateName,$donateSize,$donateweight,$donateEA,$donatecolor,$donateType,$donateDetail,$imagepath);
-                $result['data'] = $this->donate->Selectdonate($IDCard,$imagepath);
-                $this->load->view('showdetail' , $result);
+              if (($_POST['donateTypesend'] == 3) && ($_POST['donatesendDetail'] != null)) { //check ชนิดการส่ง ว่าเป็น 3 แล้วว่างมั้ย
+                    if ($this->upload->do_upload('donatePathIMG')) //check upload image ?
+                    {
+                      $imagepath = $new_name . $this->upload->data('file_ext');
+                      $this->donate->Insertdonate($IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$imagepath,$donateTypesend,$donatesendDetail);
+                      $result['data'] = $this->donate->Selectdonate($IDCard,$imagepath);
+                      $this->load->view('showdetail' , $result);
+                    }else{
+                        $check['error'] = 0;
+                        $check['name'] = $this->session->userdata('Fname');
+                        $this->load->view('donorpage',$check);
+                    }
               }else{
-                  $check['error'] = 0;
-                  $this->load->view('donorpage',$check);
+                    if (($_POST['donateTypesend'] == 1) || ($_POST['donateTypesend'] == 2)) {
+                        if ($this->upload->do_upload('donatePathIMG')) //check upload image ?
+                        {
+                          $imagepath = $new_name . $this->upload->data('file_ext');
+                          $this->donate->Insertdonate($IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$imagepath,$donateTypesend,$donatesendDetail);
+                          $result['data'] = $this->donate->Selectdonate($IDCard,$imagepath);
+                          $this->load->view('showdetail' , $result);
+                        }else{
+                            $check['error'] = 0;
+                            $check['name'] = $this->session->userdata('Fname');
+                            $this->load->view('donorpage',$check);
+                        }
+                    }else {
+                      $check['error'] = 1;
+                      $check['name'] = $this->session->userdata('Fname');
+                      $this->load->view('donorpage',$check);
+                    }
               }
             }
   }
@@ -78,12 +105,16 @@ class linkdonate extends CI_Controller
     $IDCard = $this->session->userdata('id');
     $donateID = htmlentities($_POST["donateID"]);
     $donateName = htmlentities($_POST["donateName"]);
-    $donateSize = htmlentities($_POST["donateSize"]);
+    $donateLength = htmlentities($_POST["donateLength"]);
+    $donatewidth = htmlentities($_POST["donatewidth"]);
     $donateweight = htmlentities($_POST["donateweight"]);
     $donateEA = htmlentities($_POST['donateEA']);
+    $donatecondition = htmlentities($_POST['donatecondition']);
     $donatecolor = htmlentities($_POST['donatecolor']);
     $donateType = htmlentities($_POST['donateType']);
     $donateDetail = htmlentities($_POST['donateDetail']);
+    $donateTypesend = htmlentities($_POST['donateTypesend']);
+    $donatesendDetail = htmlentities($_POST['donatesendDetail']);
 
     $new_name = time().rand();
     $config['file_name'] = $new_name;
@@ -93,26 +124,27 @@ class linkdonate extends CI_Controller
     $config['max_width']            = 1024;
     $config['max_height']           = 768;
     $this->load->library('upload', $config);
-    if (($_POST["donateName"] == null) || ($_POST["donateSize"] == null) ||
-    ($_POST["donateweight"] == null) || ($_POST['donateEA'] == null) || ($_POST['donatecolor'] == null)
+    if (($_POST["donateName"] == null) || ($_POST["donateLength"] == null) || ($_POST["donatewidth"] == null) || ($_POST["donateTypesend"] == null) ||
+    ($_POST["donateweight"] == null) || ($_POST['donateEA'] == null) || ($_POST['donatecolor'] == null) || ($_POST['donatecondition'] == null)
     || ($_POST['donateType'] == null) || ($_POST['donateDetail'] == null)) {
-      $IDCard = $this->session->userdata('id');
-      $donateID = htmlentities($_POST["donateID"]);
-      $result['data'] = $this->donate->SelectdonateBydonateID($IDCard,$donateID);
-      $result['error'] = 1;
-      $this->load->view('Editdonate' , $result);
+
+            $IDCard = $this->session->userdata('id');
+            $donateID = htmlentities($_POST["donateID"]);
+            $result['data'] = $this->donate->SelectdonateBydonateID($IDCard,$donateID);
+            $result['error'] = 1;
+            $this->load->view('Editdonate' , $result);
     }else{
-      if ($this->upload->do_upload('IMGPath')) //check upload image ?
-      {
-         $imagepath = $new_name . $this->upload->data('file_ext');
-         $this->donate->EditDonate($donateID,$IDCard, $donateName,$donateSize,$donateweight,$donateEA,$donatecolor,$donateType,$donateDetail,$imagepath);
-         $result['data'] = $this->donate->SelectdonateBydonateID($IDCard,$donateID);
-         $this->load->view('showdetail' , $result);
-      }else{
-          $this->donate->EditDonateNochangeImage($donateID,$IDCard, $donateName,$donateSize,$donateweight,$donateEA,$donatecolor,$donateType,$donateDetail);
-          $result['data'] = $this->donate->SelectdonateBydonateID($IDCard,$donateID);
-          $this->load->view('showdetail' , $result);
-      }
+            if ($this->upload->do_upload('IMGPath')) //check upload image ?
+            {
+                   $imagepath = $new_name . $this->upload->data('file_ext');
+                   $this->donate->EditDonate($donateID,$IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$imagepath,$donateTypesend,$donatesendDetail);
+                   $result['data'] = $this->donate->SelectdonateBydonateID($IDCard,$donateID);
+                   $this->load->view('showdetail' , $result);
+            }else{
+                    $this->donate->EditDonateNochangeImage($donateID,$IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$donateTypesend,$donatesendDetail);
+                    $result['data'] = $this->donate->SelectdonateBydonateID($IDCard,$donateID);
+                    $this->load->view('showdetail' , $result);
+            }
     }
   }
 

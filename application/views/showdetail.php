@@ -1,3 +1,13 @@
+<?php
+if($data['donateTypesend'] == "1"){
+  $send = "ส่งไปรษณีย์";
+}elseif($data['donateTypesend'] == "2"){
+  $send = "ส่งไปรษณีย์";
+}else{
+  $send = "นัดรับ";
+}
+
+ ?>
 <html>
 <head>
 <title>Upload Form</title>
@@ -49,12 +59,18 @@ $(document).ready(function(){
     echo form_open("linkdonate/linkEditdonate", $attributes);?>
   <input type="hidden" name="donateID" value="<?php echo $data['donateID'] ?>">;
   ชื่อของบริจาค : <span><?php echo $data['donateName'] ?></span><br>
-  ขนาด(กว้าง x ยาว) : <span><?php echo $data['donateSize'] ?></span><br>
+  กว้าง : <span><?php echo $data['donateLength'] ?></span><br>
+  ยาว : <span><?php echo $data['donatewidth'] ?></span><br>
   น้ำหนัก(กิโลกรัม) : <span><?php echo $data['donateweight'] ?></span><br>
   จำนวนชิ้น : <span><?php echo $data['donateEA'] ?></span><br>
   สี : <span><?php echo $data['donatecolor'] ?></span><br>
   ประเภท : <span><?php echo $data['donateType'] ?></span><br>
-  รายละเอียด : <span><?php echo $data['donateDetail'] ?></span><br>
+  <?php
+      if ($data['donateTypesend'] == "3") {
+        echo "  รายละเอียด : <span>" . $data['donateDetail'] . "</span><br>";
+      }
+   ?>
+  ประเภทการส่ง : <span><?php echo $send ?></span><br>
   <button type="submit" class="btn btn_ btn-small_" id="Edit">แก้ไขข้อมูล</button>
   <?php echo form_close(); ?>
 

@@ -5,7 +5,7 @@ if(!isset($error)){
   $check = $error;
 } ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>บริจาคสินค้า</title>
     <meta charset="utf-8">
@@ -19,38 +19,8 @@ if(!isset($error)){
     <script type="text/javascript" src="<?php echo base_url('Boostap2/js/jquery.easing.1.3.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('Boostap2/js/jquery.ui.totop.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('Boostap2/js/forms.js');?>"></script>
-    <script>
-          function openFile() {
-          var input = event.target;
-          var reader = new FileReader();
-          reader.onload = function(){
-          var dataURL = reader.result;
-          var output = document.getElementById('output');
-          output.src = dataURL;
-        };
-        reader.readAsDataURL(input.files[0]);
-      };
-
-      // $(document).ready(function() {
-      //   $('#submitdonate').click(function() {
-    	// 		$.ajax({
-      //       var donateName = $('#donateName')
-    	// 			url:"http://localhost/soften/index.php/linkdonate/donateControl",
-      //       data: "donateName=" + $('#donateName').val() + "&donateSize=" + $('#donateSize').val() + "&donateweight=" + $('#donateweight').val() +
-      //       "&donateEA=" + $('#donateEA').val() + "&donatecolor="
-    	// 			type: "POST",
-    	// 			success:function(res){
-    	// 			getcode2 = res.word
-    	// 			document.getElementById("captchas").innerHTML = res.image;
-    	// 			$('#ccha').removeAttr('value');
-    	// 			$("#submitregisters").prop('disabled', true);
-    	// 			$('#email').removeAttr('value');
-    	// 			$('#password').removeAttr('value');
-    	// 		 }
-    	// 		});
-    	// 	});
-      // });
-    </script>
+    <script type="text/javascript" src="<?php echo base_url('Boostap2/js/function.js');?>"></script>
+    <script></script>
 
 </head>
 
@@ -62,11 +32,12 @@ if(!isset($error)){
         	<div class="span12">
             	<div class="header-block clearfix">
                     <div class="clearfix header-block-pad">
-                        <h1 class="brand"><a href="index.html"><img src="<?php echo base_url('Boostap2/img/logo.png');?>" alt=""></a><span>Fashion brand</span></h1>
-                        <span class="contacts">
+                        <h1 class="brand"><a href="#"><img src="<?php echo base_url('Boostap2/img/logo1.png');?>" alt=""></a><span><strong>Brand of musical instruments donation </strong></span></h1>
+                       <span class="contacts">
                             <?php
                               $attributes = array("method" => "POST", "autocomplete" => "on");
                               echo form_open("checklogin/Logoutuser", $attributes);?>
+                              <h5>สวัสดีครับ : <span>คุณ<?php echo $this->session->userdata('Fname'); ?></span></h5>
                               <button class="btn btn_" type="submit"><span style="color:#FFFFFF;text-align:center;">Logout</span></button>
                             <?php echo form_close(); ?>
                         </span>
@@ -78,27 +49,25 @@ if(!isset($error)){
                                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse_">MENU</a>
                                 <div class="nav-collapse nav-collapse_ collapse">
                                     <ul class="nav sf-menu">
-                                      <li class="li-first"><a href="index.html"><em class="hidden-phone"></em><span class="visible-phone">Home</span></a></li>
-                                      <li class="sub-menu"><a href="index-1.html">about</a>
-                                        <ul>
-                                          <li><a href="#">Welcome Message</a></li>
-                                          <li class="sub-menu"><a href="#">Company Profile</a>
+                                        <li class="active li-first"><a href="#"><em class="hidden-phone"></em>&nbsp;Home</a></li>
+                                        <li><a href="#">Statistic</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                        <li class="sub-menu"><a href="#">about</a>
                                             <ul>
-                                              <li><a href="#">Our Capabilities</a></li>
-                                              <li><a href="#">Advantages</a></li>
-                                              <li><a href="#">Work Team</a></li>
-                                              <li><a href="#">Partnership</a></li>
-                                              <li><a href="#">Support</a></li>
+                                                <li><a href="#">Welcome Message</a></li>
+                                                <li class="sub-menu"><a href="#">Company Profile</a>
+                                                    <ul>
+                                                        <li><a href="#">Our Capabilities</a></li>
+                                                        <li><a href="#">Advantages</a></li>
+                                                        <li><a href="#">Work Team</a></li>
+                                                        <li><a href="#">Partnership</a></li>
+                                                        <li><a href="#">Support</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="#">Our History</a></li>
+                                                <li><a href="#">Testimonials</a></li>
                                             </ul>
-                                          </li>
-                                          <li><a href="#">Our History</a></li>
-                                          <li><a href="#">Testimonials</a></li>
-                                        </ul>
-                                      </li>
-                                      <li><a href="index-2.html">services</a></li>
-                                      <li><a href="index-3.html">collections</a></li>
-                                      <li><a href="index-4.html">styles</a></li>
-                                      <li class="active"><a href="index-5.html">contacts</a></li>
+                                        </li>
                                     </ul>
                                 </div>
                                 <ul class="social-icons">
@@ -115,76 +84,128 @@ if(!isset($error)){
        </div>
     </div>
 </header>
-
+<!--=============================================================================================-->
 <section id="content">
-<div class="sub-content">
-  <div class="container">
-    <div class="row">
-        <div class="span6">
-        	<h4>กรอกข้อมูลสิ่งของที่บริจาค</h4>
-          <table width="1150" height="400" border="0">
-            <tr>
-              <td>
-                <?php
-                if ($check == 0) {
-                echo '<br><span style="color:#ff0000;text-align:center;">คุณยังไม่ได้เลือกรูปภาพหรือรูปภาพมีขนาดใหญ่ไป</span>';
-              }elseif ($check == 1) {
-                echo '<br><span style="color:#ff0000;text-align:center;">กรุณากรอกให้ครบทุกช่อง</span>';
-              }
-                 ?>
-          <?php echo form_open_multipart('linkdonate/donateControl');?>
-          ชื่อของที่บริจาค : <input type="text" class="form-control" name="donateName" id='donateName' > <br>
-          ขนาด(กว้าง x ยาว) : <input type="text" class="form-control" name="donateSize" id="donateSize" ><br>
-          น้ำหนัก(กิโลกรัม) : <input type="text" class="form-control" name="donateweight" id="donateweight" ><br>
-          จำนวนชิ้น : <input type="text" class="form-control" name="donateEA" id="donateEA" ><br>
-          สี : <input type="text" class="form-control" name="donatecolor" id="donatecolor" ><br>
-          ประเภท : <select id="music" name="donateType" id='donateType' style="color: #000000;">
-            <option value="เครื่องสาย">เครื่องสาย</option>
-            <option value="เครื่องตี">เครื่องตี</option>
-            <option value="เครื่องดีด">เครื่องดีด</option>
-            <option value="เครื่องสี">เครื่องสี</option>
-          </select><br>
-          รายละเอียด : <br><textarea id="donateDetail" class="form-control" rows="4" cols="32" name="donateDetail" ></textarea><br>
+    <div class="sub-content">
+        <div class="container">
+            <div class="row">
+                <div class="span4">
 
-              </td>
-              <td align='center'>
-                <img id='output' height=500 width=400 /><br>
-                อัพโหลดรูป : <input type="file" name="donatePathIMG" size="20" onchange='openFile()'/><br>
+                    <br><br><br><br><br>
+                   <div class="contact-form">
+                    <form action="<?= base_url() ?>index.php/linkdonate/donateControl" method="post" enctype="multipart/form-data">
+                        <table width="300" height="400" border="5">
 
-              </td>
-            </tr>
-          </table>
-                <br/><br/>
-                  <div class="pull-right">
-                      <button type='submit' class="btn btn_ btn-small_" id="submitdonate">submit</button>
-                  </div>
-              <?php echo form_close(); ?>
+                                <td>
+                        <img id='output' height=500 width=400 />
+                                </td>
+
+                            </table>
+                        อัพโหลดรูป : <br><input type="file" name="donatePathIMG" size="30" onchange='openFile()'/><br>
 
 
-		</div>
+                </div>
+                </div>
+                <div class="span6">
+                    <div class="contact-form">
+                    <?php
+                    if ($check == 0) {
+                        echo '<br><span style="color:#ff0000;text-align:center;">คุณยังไม่ได้เลือกรูปภาพหรือรูปภาพมีขนาดใหญ่ไป</span>';
+                    }elseif ($check == 1) {
+                        echo '<br><span style="color:#ff0000;text-align:center;">กรุณากรอกให้ครบทุกช่อง</span>';
+                    }
+                    ?>
+
+                    <h4>กรอกข้อมูลสิ่งของที่บริจาค</h4>
+                            <div class="success">Contact form submitted!<strong><br>We will be in touch soon.</strong> </div>
+                            <fieldset>
+
+                                    ชื่อของที่บริจาค :<input type="text" name="donateName" id='donateName' >
+
+                                <br>
+
+                                    ขนาดความกว้าง (m) : <input type="text" class="form-control" name="donateLength" id="donateLength" >
+                                <br>
+
+                                    ขนาดความยาว (m) : <input type="text" class="form-control" name="donatewidth" id="donatewidth" >
+                                <br>
+
+
+                                    น้ำหนัก(กิโลกรัม) : <input type="text" class="form-control" name="donateweight" id="donateweight" >
+                                <br>
+
+
+                                    จำนวนชิ้น : <input type="text" class="form-control" name="donateEA" id="donateEA" >
+                                <br>
+
+                                    สภาพโดยรวมเฉลี่ย (%) : <br><input type="number"  min="1" max="100" name="donatecondition" id="donatecondition">
+
+                                <br> <br><br>
+
+
+                                    สี : <input type="text" class="form-control" name="donatecolor" id="donatecolor">
+                                    <span class="error">*This is not a valid phone number.</span> <span class="empty">*This field is required.</span>
+                                <br><br><br><br><br>
+
+                                <label class="Type">
+                                    ประเภท : <select id="music" name="donateType" id='donateType'  style="color: #000000;">
+                                        <option value="เครื่องสาย">เครื่องสาย</option>
+                                        <option value="เครื่องตี">เครื่องตี</option>
+                                        <option value="เครื่องดีด">เครื่องดีด</option>
+                                        <option value="เครื่องสี">เครื่องสี</option>
+                                    </select>
+                                </label>
+
+                                <label class="Type">
+                                    รายละเอียด :
+                                    <textarea id="donateDetail" rows="4" cols="32" name="donateDetail" ></textarea>
+                                </label>
+                                <h4>เลือกการส่ง :</h4>
+                                <label class="Typesend">
+                                    <h5>ส่งไปรษณีย์<input name="donateTypesend" type="radio" class="donatesend" id="donatesend" value="1" onClick="uninput();" checked/></h5>
+                                    </label>
+                                <label class="Typesend">
+                                    <h5>รับที่องค์กร<input name="donateTypesend" type="radio" class="donatesend" id="donatesend" value="2" onClick="uninput();" /></h5>
+                                </label>
+                                <label class="Typesend">
+                                    <h5>นัดรับที่<input name="donateTypesend" type="radio" class="donatesend" id="donatesend" value="3" onClick="showinput();" /></h5>
+                                </label>
+
+                                <div id="frm_txt" style="display:none;">
+                                    รายละเอียดการส่ง : <input type="text" name="donatesendDetail" id="txtnum" /><br/>
+                                </div>
+
+                            </fieldset>
+                        <div class="pull-right">
+                            <button type='submit' class="btn btn_ btn-small_" id="submitdonate">submit</button>
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
     </div>
-  </div>
-</div>
 </section>
 
 <footer>
-   <div class="container">
-    <div class="row">
-      <div class="span4 float2">
+    <div class="container">
+        <div class="row">
+            <div class="span4 float2">
+            </div>
+            <div class="span8 float">
+                <ul class="footer-menu">
+                    <li><a href="#" class="current">Home Page</a>|</li>
+                    <li><a href="#">Statistic</a>|</li>
+                    <li><a href="#">FAQ</a>|</li>
+                    <li><a href="#">about</a>|</li>
+                </ul>
+                WeShar   &copy;  2017  |   Email : <a rel="nofollow" href="http://www.weshar@kku.com" target="_blank">weshar@kku.com</a>
+            </div>
+        </div>
     </div>
-    <div class="span8 float">
-      	<ul class="footer-menu">
-        	<li><a href="index.html">Home Page</a>|</li>
-            <li><a href="index-1.html">about</a>|</li>
-            <li><a href="index-2.html">Services</a>|</li>
-            <li><a href="index-3.html">collections</a>|</li>
-            <li><a href="index-4.html">styles</a>|</li>
-            <li><a href="index-5.html" class="current">Contacts</a></li>
-        </ul>
-          WeShar   &copy;  2017  |   Email : <a rel="nofollow" href="http://www.weshar@kku.com" target="_blank">weshar@kku.com</a>
-      </div>
-    </div>
-   </div>
 </footer>
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/bootstrap.js');?>"></script>
 </body>
