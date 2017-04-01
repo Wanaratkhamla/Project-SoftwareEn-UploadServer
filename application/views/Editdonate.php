@@ -69,7 +69,7 @@ if(!isset($error)){
                             <?php
                               $attributes = array("method" => "POST", "autocomplete" => "on");
                               echo form_open("checklogin/Logoutuser", $attributes);?>
-                              <h5>สวัสดีครับ : <span>คุณ<?php echo $this->session->userdata('Fname'); ?></span></h5>
+                              <h5><img height=50 width=50 src="<?php echo base_url("cart.png"); ?>"  /> | สวัสดีครับ : <span>คุณ<?php echo $this->session->userdata('Fname'); ?></span></h5>
                               <button class="btn btn_" type="submit"><span style="color:#FFFFFF;text-align:center;">Logout</span></button>
                             <?php echo form_close(); ?>
                         </span>
@@ -81,7 +81,8 @@ if(!isset($error)){
                                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse_">MENU</a>
                                 <div class="nav-collapse nav-collapse_ collapse">
                                     <ul class="nav sf-menu">
-                                        <li class="active li-first"><a href="#"><em class="hidden-phone"></em>&nbsp;Home</a></li>
+                                        <li class="active li-first"><a href="<?php echo base_url('index.php/startweb');?>"><em class="hidden-phone"></em>&nbsp;Home</a></li>
+                                        <li><a href="#">Donate Item</a></li>
                                         <li><a href="#">Statistic</a></li>
                                         <li><a href="#">FAQ</a></li>
                                         <li class="sub-menu"><a href="#">about</a>
@@ -155,10 +156,10 @@ if(!isset($error)){
 
                                 <br>
 
-                                    ขนาดความกว้าง (m) : <input type="text" class="form-control" name="donateLength" id="donateLength" value="<?php echo $data['donateLength'] ?>">
+                                    ขนาดความกว้าง (CM) : <input type="text" class="form-control" name="donateLength" id="donateLength" value="<?php echo $data['donateLength'] ?>">
                                 <br>
 
-                                    ขนาดความยาว (m) : <input type="text" class="form-control" name="donatewidth" id="donatewidth" value="<?php echo $data['donatewidth'] ?>">
+                                    ขนาดความยาว (CM) : <input type="text" class="form-control" name="donatewidth" id="donatewidth" value="<?php echo $data['donatewidth'] ?>">
                                 <br>
 
 
@@ -184,6 +185,7 @@ if(!isset($error)){
                                         <option value="เครื่องตี">เครื่องตี</option>
                                         <option value="เครื่องดีด">เครื่องดีด</option>
                                         <option value="เครื่องสี">เครื่องสี</option>
+                                        <option value="เครื่องเป่า">เครื่องเป่า</option>
                                     </select>
                                 </label>
 

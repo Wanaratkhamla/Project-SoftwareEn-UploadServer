@@ -38,6 +38,8 @@ class donate extends CI_Model
     $rs = $this->db->get();
     return $rs->row_array();
   }
+
+
   function SelectdonateBydonateID($IDCard,$donateID)
   {
     $this->db->select('*');

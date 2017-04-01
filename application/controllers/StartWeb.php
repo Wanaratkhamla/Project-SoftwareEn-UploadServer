@@ -10,10 +10,13 @@ class startweb extends CI_Controller
   public function index()
   {
     # code...
-
-    $captcha = $this->captcha->CreateCaptcha();
-    $this->load->view('home' , $captcha);
-    
+    if ($this->session->userdata('Fname')) {
+      $captcha['error'] = 1;
+      $this->load->view('home' , $captcha);
+    }else{
+      $captcha = $this->captcha->CreateCaptcha();
+      $this->load->view('home' , $captcha);
+    }
 
   }
 

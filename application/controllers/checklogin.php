@@ -46,7 +46,10 @@ class checklogin extends CI_Controller
            $this->session->sess_expiration = '7200';
            $this->session->set_userdata($sess_array);
          }
-      echo $check;
+         $data = array("Fname" => $this->session->userdata('Fname'),
+                          "check" => 5
+                          );
+         echo json_encode($data);
     }
   }
 

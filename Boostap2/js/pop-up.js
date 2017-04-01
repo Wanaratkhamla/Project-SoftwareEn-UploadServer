@@ -56,6 +56,7 @@ $(function() {
                 $.ajax({
         				 url:"https://10.199.66.227/SoftEn2017/group8/index.php/checklogin",
                  data: "Email=" + $('#email').val() + "&password=" + $('#password').val(),
+                 dataType: 'json',
         				 type:"POST",
         				 success:function(res){
                    if (res == 2) {
@@ -72,6 +73,7 @@ $(function() {
                      refreshcaptcha();
                    }else{
                       msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "success", "glyphicon-ok", function () { modalAnimate($formLogin,$14form);});
+                      $("#showname").text(res.Fname);
                    }
         				 }
         				});
