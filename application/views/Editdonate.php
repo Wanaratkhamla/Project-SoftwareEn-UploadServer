@@ -22,7 +22,7 @@ if(!isset($error)){
     <script type="text/javascript" src="<?php echo base_url('Boostap2/js/function.js');?>"></script>
     <script>
      $(document).ready(function() {
-        var check = '<?php echo $data['donateTypesend'] ?>';
+        var check = '<?php echo $data['donateTypeSendID'] ?>';
          if (check == '1') {
            $('#donatesend1').prop('checked', true);
          }else if (check == '2') {
@@ -65,7 +65,7 @@ if(!isset($error)){
             	<div class="header-block clearfix">
                     <div class="clearfix header-block-pad">
                         <h1 class="brand"><a href="#"><img src="<?php echo base_url('Boostap2/img/logo1.png');?>" alt=""></a><span><strong>Brand of musical instruments donation </strong></span></h1>
-                       <span class="contacts">
+                       <span class="contacts" align="right">
                             <?php
                               $attributes = array("method" => "POST", "autocomplete" => "on");
                               echo form_open("checklogin/Logoutuser", $attributes);?>
@@ -148,22 +148,22 @@ if(!isset($error)){
                   }
                     ?>
 
-                    <h4>แก้ไขข้อมูลรับบริจาค</h4>
+                    <h4>แก้ไขข้อมูลของบริจาค</h4>
                             <div class="success">Contact form submitted!<strong><br>We will be in touch soon.</strong> </div>
                             <input type="hidden" id="donateID" name="donateID" value="<?php echo $data['donateID'] ?>">
                             <fieldset>
-                                    ชื่อของที่บริจาค :<input type="text" name="donateName" id='donateName' value="<?php echo $data['donateName'] ?>">
+                                    ชื่อเครื่องดนตรี :<input type="text" name="donateName" id='donateName' value="<?php echo $data['donateName'] ?>">
 
                                 <br>
 
-                                    ขนาดความกว้าง (CM) : <input type="text" class="form-control" name="donateLength" id="donateLength" value="<?php echo $data['donateLength'] ?>">
+                                    ขนาดความกว้าง (cm.) : <input type="text" class="form-control" name="donateLength" id="donateLength" value="<?php echo $data['donateLength'] ?>">
                                 <br>
 
-                                    ขนาดความยาว (CM) : <input type="text" class="form-control" name="donatewidth" id="donatewidth" value="<?php echo $data['donatewidth'] ?>">
+                                    ขนาดความยาว (cm.) : <input type="text" class="form-control" name="donatewidth" id="donatewidth" value="<?php echo $data['donatewidth'] ?>">
                                 <br>
 
 
-                                    น้ำหนัก(กิโลกรัม) : <input type="text" class="form-control" name="donateweight" id="donateweight" value="<?php echo $data['donateweight'] ?>">
+                                    น้ำหนัก(kg.) : <input type="text" class="form-control" name="donateweight" id="donateweight" value="<?php echo $data['donateweight'] ?>">
                                 <br>
 
 
@@ -205,7 +205,7 @@ if(!isset($error)){
                                 </label>
 
                                 <div id="frm_txt" style="display:none;">
-                                    รายละเอียดการส่ง : <input type="text" name="donatesendDetail" id="donatesendDetail" value="<?php echo $data['donatesendDetail'] ?>"/><br/>
+                                    สถานที่นัดรับ : <input type="text" name="donatesendDetail" id="donatesendDetail" value="<?php echo $data['donatesendDetail'] ?>"/><br/>
                                 </div>
 
                             </fieldset>

@@ -22,23 +22,6 @@ if($data['donateTypeSendID'] == "1"){
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/function.js');?>"></script>
 <script>
 $(document).ready(function(){
-
-    // $('#Edit').click(function() {
-    //   var url = 'http://example.com/vote/' + Username;
-    //   var form = $('<form action="' + url + '" method="post">' +
-    //     '<input type="text" name="donateID" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donateName" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donateSize" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donateweight" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donateEA" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donatecolor" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donateType" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donateDetail" value="' + Return_URL + '" />' +
-    //     '<input type="file" name="donatePathIMG" value="' + Return_URL + '" />' +
-    //     '</form>');
-    //   $('body').append(form);
-    //   form.submit();
-    // });
 });
 </script>
 
@@ -126,14 +109,14 @@ $(document).ready(function(){
   <table>
     <tr><td><h3>รายละเอียดสินค้า</h3></td></tr>
     <tr><td><h5>ชื่อของบริจาค :</h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateName'] ?></span></td></tr>
-    <tr><td><h5>กว้าง(cm.) : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateLength'] ?></span></td></tr>
-    <tr><td><h5>ยาว(cm.) : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donatewidth'] ?></span></td></tr>
-    <tr><td><h5>น้ำหนัก(kg.) : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateweight'] ?></span></td></tr>
+    <tr><td><h5>กว้าง(CM) : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateLength'] ?></span></td></tr>
+    <tr><td><h5>ยาว(CM) : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donatewidth'] ?></span></td></tr>
+    <tr><td><h5>น้ำหนัก(กิโลกรัม) : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateweight'] ?></span></td></tr>
     <tr><td><h5>จำนวนชิ้น : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateEA'] ?></span></td></tr>
-    <tr><td><h5>สภาพ : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donatecondition'] . " " . " % " ?></span></td></tr>
+    <tr><td><h5>สภาพของบริจาค : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donatecondition'] . " " . " % " ?></span></td></tr>
     <tr><td><h5>สี : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donatecolor'] ?></span></td></tr>
     <tr><td><h5>ประเภท : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateType'] ?></span></td></tr>
-    <tr><td><h5>รายละเอียด :</h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateDetail'] ?></span></td></tr>
+    <tr><td><h5>รายละเอียดของบริจาค :</h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateDetail'] ?></span></td></tr>
     <tr><td><h5>ประเภทการส่ง : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $send ?></span></td></tr>
     <?php
         if ($data['donateTypeSendID'] == "3") {
@@ -142,9 +125,9 @@ $(document).ready(function(){
      ?>
   </table>
   <table>
-    <tr><td><button type='button' class="btn btn_ btn-small_"><span style="color:#FFFFFF;text-align:center;"><a style="color:white;" href="<?php echo base_url('index.php/linkdonate');?>">บริจาคเพิ่ม</a></span></button>
+    <tr><td><button type='button' class="btn btn_ btn-small_"><span style="color:#FFFFFF;text-align:center;"><a style="color:white;" href="#">เพื่มเข้าตระกร้าสินค้า</a></span></button>
 
-    <button type="submit" class="btn btn_ btn-small_" id="Edit">แก้ไขข้อมูล</button>
+    <button type="button" class="btn btn_ btn-small_" id="Edit"><a style="color:white;" href="<?php echo base_url('index.php/linkquery');?>">กลับสู่หน้าเลือกสินค้า</a></button>
   <?php echo form_close(); ?></td></tr></table>
 
 

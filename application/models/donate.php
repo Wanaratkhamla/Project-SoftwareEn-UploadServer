@@ -8,7 +8,7 @@ class donate extends CI_Model
   }
 
 
-  function Insertdonate($IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$donatePathIMG,$donateTypesend,$donatesendDetail)
+  function Insertdonate($IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$donatePathIMG,$donateTypeSendID,$donatesendDetail)
   {
       $now = date('Y-m-d H:i:s');
       $sql = array(
@@ -23,7 +23,7 @@ class donate extends CI_Model
         'donateType' => $donateType,
         'donateDetail' => $donateDetail,
         'donatePathIMG' => $donatePathIMG,
-        'donateTypesend' => $donateTypesend,
+        'donateTypeSendID' => $donateTypeSendID,
         'donatesendDetail' => $donatesendDetail,
         'donateTimestamp' => $now
       );
@@ -49,7 +49,7 @@ class donate extends CI_Model
     $rs = $this->db->get();
     return $rs->row_array();
   }
-  function EditDonate($donateID,$IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$donatePathIMG,$donateTypesend,$donatesendDetail)
+  function EditDonate($donateID,$IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$donatePathIMG,$donateTypeSendID,$donatesendDetail)
   {
     $this->db->set('donateName', $donateName);
     $this->db->set('donateLength' , $donateLength);
@@ -61,14 +61,14 @@ class donate extends CI_Model
     $this->db->set('donateType',$donateType);
     $this->db->set('donateDetail',$donateDetail);
     $this->db->set('donatePathIMG',$donatePathIMG);
-    $this->db->set('donateTypesend' , $donateTypesend);
+    $this->db->set('donateTypeSendID' , $donateTypeSendID);
     $this->db->set('donatesendDetail' , $donatesendDetail);
     $this->db->where('IDCard', $IDCard);
     $this->db->where('donateID' , $donateID);
     $this->db->update('donate');
   }
 
-  function EditDonateNochangeImage($donateID,$IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$donateTypesend,$donatesendDetail)
+  function EditDonateNochangeImage($donateID,$IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$donateTypeSendID,$donatesendDetail)
   {
     $this->db->set('donateName', $donateName);
     $this->db->set('donateLength' , $donateLength);
@@ -79,7 +79,7 @@ class donate extends CI_Model
     $this->db->set('donatecolor',$donatecolor);
     $this->db->set('donateType',$donateType);
     $this->db->set('donateDetail',$donateDetail);
-    $this->db->set('donateTypesend' , $donateTypesend);
+    $this->db->set('donateTypeSendID' , $donateTypeSendID);
     $this->db->set('donatesendDetail' , $donatesendDetail);
     $this->db->where('IDCard', $IDCard);
     $this->db->where('donateID' , $donateID);

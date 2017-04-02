@@ -45,7 +45,7 @@ class linkdonate extends CI_Controller
           $donatecolor = htmlentities($_POST['donatecolor']);
           $donateType = htmlentities($_POST['donateType']);
           $donateDetail = htmlentities($_POST['donateDetail']);
-          $donateTypesend = htmlentities($_POST['donateTypesend']);
+          $donateTypeSendID = $_POST['donateTypesend'];
           $donatesendDetail = htmlentities($_POST['donatesendDetail']);
 
 
@@ -70,7 +70,7 @@ class linkdonate extends CI_Controller
                     if ($this->upload->do_upload('donatePathIMG')) //check upload image ?
                     {
                       $imagepath = $new_name . $this->upload->data('file_ext');
-                      $this->donate->Insertdonate($IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$imagepath,$donateTypesend,$donatesendDetail);
+                      $this->donate->Insertdonate($IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$imagepath,$donateTypeSendID,$donatesendDetail);
                       $result['data'] = $this->donate->Selectdonate($IDCard,$imagepath);
                       $this->load->view('showdetail' , $result);
                     }else{
@@ -83,7 +83,7 @@ class linkdonate extends CI_Controller
                         if ($this->upload->do_upload('donatePathIMG')) //check upload image ?
                         {
                           $imagepath = $new_name . $this->upload->data('file_ext');
-                          $this->donate->Insertdonate($IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$imagepath,$donateTypesend,$donatesendDetail);
+                          $this->donate->Insertdonate($IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$imagepath,$donateTypeSendID,$donatesendDetail);
                           $result['data'] = $this->donate->Selectdonate($IDCard,$imagepath);
                           $this->load->view('showdetail' , $result);
                         }else{
@@ -113,7 +113,7 @@ class linkdonate extends CI_Controller
     $donatecolor = htmlentities($_POST['donatecolor']);
     $donateType = htmlentities($_POST['donateType']);
     $donateDetail = htmlentities($_POST['donateDetail']);
-    $donateTypesend = htmlentities($_POST['donateTypesend']);
+    $donateTypeSendID = $_POST['donateTypesend'];
     $donatesendDetail = htmlentities($_POST['donatesendDetail']);
 
     $new_name = time().rand();
@@ -137,11 +137,11 @@ class linkdonate extends CI_Controller
             if ($this->upload->do_upload('IMGPath')) //check upload image ?
             {
                    $imagepath = $new_name . $this->upload->data('file_ext');
-                   $this->donate->EditDonate($donateID,$IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$imagepath,$donateTypesend,$donatesendDetail);
+                   $this->donate->EditDonate($donateID,$IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$imagepath,$donateTypeSendID,$donatesendDetail);
                    $result['data'] = $this->donate->SelectdonateBydonateID($IDCard,$donateID);
                    $this->load->view('showdetail' , $result);
             }else{
-                    $this->donate->EditDonateNochangeImage($donateID,$IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$donateTypesend,$donatesendDetail);
+                    $this->donate->EditDonateNochangeImage($donateID,$IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$donateTypeSendID,$donatesendDetail);
                     $result['data'] = $this->donate->SelectdonateBydonateID($IDCard,$donateID);
                     $this->load->view('showdetail' , $result);
             }

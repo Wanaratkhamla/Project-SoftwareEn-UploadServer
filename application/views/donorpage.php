@@ -33,7 +33,7 @@ if(!isset($error)){
             	<div class="header-block clearfix">
                     <div class="clearfix header-block-pad">
                         <h1 class="brand"><a href="#"><img src="<?php echo base_url('Boostap2/img/logo1.png');?>" alt=""></a><span><strong>Brand of musical instruments donation </strong></span></h1>
-                       <span class="contacts">
+                       <span class="contacts" align="right">
                             <?php
                               $attributes = array("method" => "POST", "autocomplete" => "on");
                               echo form_open("checklogin/Logoutuser", $attributes);?>
@@ -117,22 +117,22 @@ if(!isset($error)){
                     }
                     ?>
 
-                    <h4>กรอกข้อมูลสิ่งของที่บริจาค</h4>
+                    <h4>กรอกข้อมูลเครื่องดนตรี</h4>
                             <div class="success">Contact form submitted!<strong><br>We will be in touch soon.</strong> </div>
                             <fieldset>
 
-                                    ชื่อของที่บริจาค :<input type="text" name="donateName" id='donateName' >
+                                    ชื่อเครื่องดนตรี :<input type="text" name="donateName" id='donateName' >
 
                                 <br>
 
-                                    ขนาดความกว้าง (CM) : <input type="text" class="form-control" name="donateLength" id="donateLength" >
+                                    ขนาดความกว้าง (cm.) : <input type="text" class="form-control" name="donateLength" id="donateLength" >
                                 <br>
 
-                                    ขนาดความยาว (CM) : <input type="text" class="form-control" name="donatewidth" id="donatewidth" >
+                                    ขนาดความยาว (cm.) : <input type="text" class="form-control" name="donatewidth" id="donatewidth" >
                                 <br>
 
 
-                                    น้ำหนัก(กิโลกรัม) : <input type="text" class="form-control" name="donateweight" id="donateweight" >
+                                    น้ำหนัก(kg.) : <input type="text" class="form-control" name="donateweight" id="donateweight" >
                                 <br>
 
 
@@ -174,12 +174,12 @@ if(!isset($error)){
                                 </label>
 
                                 <div id="frm_txt" style="display:none;">
-                                    รายละเอียดการส่ง : <input type="text" name="donatesendDetail" id="txtnum" /><br/>
+                                    สถานที่นัดรับ : <input type="text" name="donatesendDetail" id="txtnum" /><br/>
                                 </div>
 
                             </fieldset>
                         <div class="pull-right">
-                            <button type='submit' class="btn btn_ btn-small_" id="submitdonate">submit</button>
+                            <button type='submit' class="btn btn_ btn-small_" id="submitdonate">บริจาค</button>
                         </div>
                         </form>
                     </div>
