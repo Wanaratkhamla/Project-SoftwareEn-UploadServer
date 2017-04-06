@@ -6,8 +6,6 @@ class donate extends CI_Model
     # code...
       parent::__construct();
   }
-
-
   function Insertdonate($IDCard,$donateName,$donateLength,$donatewidth,$donateweight,$donateEA,$donatecondition,$donatecolor,$donateType,$donateDetail,$donatePathIMG,$donateTypeSendID,$donatesendDetail)
   {
       $now = date('Y-m-d H:i:s');
@@ -85,6 +83,8 @@ class donate extends CI_Model
     $this->db->where('donateID' , $donateID);
     $this->db->update('donate');
   }
+
+
 
 }
 

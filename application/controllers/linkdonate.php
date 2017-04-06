@@ -12,7 +12,7 @@ class linkdonate extends CI_Controller
     # code...
   }
 
-  public function index()
+  public function index() //function สำหรับ link ไปยังหน้า insert การบริจาค
   {
     if ($this->session->userdata('Fname')) {
       $this->load->view('donorpage');
@@ -21,19 +21,7 @@ class linkdonate extends CI_Controller
        redirect('startweb');
     }
   }
-  // $data = array(
-  //   'donateID' => $result['donateID'],
-  //   'IDCard' => $result['IDCard'],
-  //   'donateName' => $result['donateName'],
-  //   'donateSize' => $result['donateSize'],
-  //   'donateweight' => $result['donateweight'],
-  //   'donateEA' => $result['donateEA'],
-  //   'donatecolor' => $result['donatecolor'],
-  //   'donateType' => $result['donateType'],
-  //   'donateDetail' => $result['donateDetail'],
-  //   'donatePathIMG' => $result['donatePathIMG']
-  // );
-  public function donateControl()
+  public function donateControl() //function สำหรับการ เพิ่ม ของบริจาค
   {
           $IDCard = $this->session->userdata('id');
           $donateName = htmlentities($_POST["donateName"]);
@@ -100,7 +88,7 @@ class linkdonate extends CI_Controller
             }
   }
 
-  public function updatedonate()
+  public function updatedonate() //function สำหรับ แก้ไข การบริจาค
   {
     $IDCard = $this->session->userdata('id');
     $donateID = htmlentities($_POST["donateID"]);
@@ -126,7 +114,7 @@ class linkdonate extends CI_Controller
     $this->load->library('upload', $config);
     if (($_POST["donateName"] == null) || ($_POST["donateLength"] == null) || ($_POST["donatewidth"] == null) || ($_POST["donateTypesend"] == null) ||
     ($_POST["donateweight"] == null) || ($_POST['donateEA'] == null) || ($_POST['donatecolor'] == null) || ($_POST['donatecondition'] == null)
-    || ($_POST['donateType'] == null) || ($_POST['donateDetail'] == null)) {
+    || ($_POST['donateType'] == null) || ($_POST['donateDetail'] == null) || ($_POST['donateID'] == null))) {
 
             $IDCard = $this->session->userdata('id');
             $donateID = htmlentities($_POST["donateID"]);
@@ -148,7 +136,7 @@ class linkdonate extends CI_Controller
     }
   }
 
-  public function linkEditdonate()
+  public function linkEditdonate() // function สำหรับ link ไปยังหน้า แก้ไข
   {
     $IDCard = $this->session->userdata('id');
     $donateID = htmlentities($_POST["donateID"]);

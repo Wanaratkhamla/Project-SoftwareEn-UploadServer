@@ -8,10 +8,6 @@ if(!isset($error)){
 <head>
     <title>Home</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Your description">
-    <meta name="keywords" content="Your keywords">
-    <meta name="author" content="Your name">
     <link rel="icon" href="Boostap2/img/trumpet.png" type="image/x-icon">
     <link rel="shortcut icon" href="<?php echo base_url('Boostap2/img/trumpet.png');?>" type="image/x-icon" />
     <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/bootstrap.css');?>" type="text/css" media="screen">
@@ -41,17 +37,6 @@ if(!isset($error)){
         					$("#submitlogin").prop('disabled', true);
         			}
         		});
-
-            $('#submitlogin').click(function() {
-              $.ajax({
-      				 url:"checklogin/ReturnName",
-         			 type: "POST",
-         			 dataType: 'json',
-      				 success:function(res){
-                 $("#showname").text(res);
-      				 }
-      				});
-            });
 
 
             $('#Refreshcaptcha').click(function() {
@@ -114,8 +99,8 @@ if(!isset($error)){
                              </div>
                         </center>
                         <div>
-                            <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
-                            <button type="button" class="btn btn-link"><a href="<?php echo base_url('index.php/linkregister');?>">Register</a></button>
+                            <button id="login_lost_btn" type="button" class="btn btn-link"><a href="<?php echo base_url('index.php/forgetpasswordCTRL');?>" style="color:black;">Lost Password?</a></button>
+                            <button type="button" class="btn btn-link"><a href="<?php echo base_url('index.php/linkregister');?>" style="color:black;">Register</a></button>
                         </div>
                     </div>
                   </form>
@@ -182,7 +167,7 @@ if(!isset($error)){
             <div class="span12">
                 <div class="header-block clearfix">
                     <div class="clearfix header-block-pad">
-                        <h1 class="brand"><a href="#"><img src="<?php echo base_url('Boostap2/img/logo1.png');?>" alt=""></a><span><strong>Brand of musical instruments donation </strong></span></h1>
+                        <h1 class="brand"><a href="<?php echo base_url('index.php/startweb');?>"><img src="<?php echo base_url('Boostap2/img/logo1.png');?>" alt=""></a><span><strong>Brand of musical instruments donation </strong></span></h1>
                         <?php
                         if ($check == '1') { ?>
                           <span class="contacts" align='right'>
@@ -207,7 +192,7 @@ if(!isset($error)){
                                 <div class="nav-collapse nav-collapse_ collapse">
                                     <ul class="nav sf-menu">
                                         <li class="active li-first"><a href="<?php echo base_url('index.php/startweb');?>"><em class="hidden-phone"></em>&nbsp;Home</a></li>
-                                        <?php if ($this->session->userdata('Fname')){ ?>
+                                        <?php if ($this->session->userdata('Typemember') == 1){ ?>
                                           <li><a href="#">Donate Item</a></li>
                                           <?php } ?>
 

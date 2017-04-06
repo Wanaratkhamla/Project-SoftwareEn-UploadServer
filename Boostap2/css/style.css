@@ -985,7 +985,6 @@ form#newsletter input {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  float: left;
 }
 form#newsletter input:focus {
   box-shadow: none;
@@ -1067,13 +1066,13 @@ form#newsletter label {
   }
 }
 @media (max-width: 1199px) {
-  
+
 }
 @media (min-width: 980px) and (max-width: 1199px) {
-  
+
 }
 @media (min-width: 979px) {
-  
+
 }
 @media (max-width: 979px) {
   .slider {
@@ -1484,32 +1483,4 @@ form#newsletter label {
   .camera_pag {
     left: 40px !important;
   }
-}
-/*Core variables and mixins*/
-.clearfix {
-  *zoom: 1;
-}
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-.clearfix:after {
-  clear: both;
-}
-.hide-text {
-  font: 0/0 a;
-  color: transparent;
-  text-shadow: none;
-  background-color: transparent;
-  border: 0;
-}
-.input-block-level {
-  display: block;
-  width: 100%;
-  min-height: 30px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }

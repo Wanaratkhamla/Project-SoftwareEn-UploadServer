@@ -7,9 +7,9 @@ if(!isset($error)){
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>บริจาคสินค้า</title>
+    <title>รายการของบริจาค</title>
     <meta charset="utf-8">
-
+    <link rel="icon" href="Boostap2/img/trumpet.png" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/bootstrap.css');?>" type="text/css" media="screen">
     <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/responsive.css');?>" type="text/css" media="screen">
     <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/style.css');?>" type="text/css" media="screen">
@@ -20,7 +20,6 @@ if(!isset($error)){
     <script type="text/javascript" src="<?php echo base_url('Boostap2/js/forms.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('Boostap2/js/function.js');?>"></script>
     <style>
-
     div.img-resize img {
     	width: 240px;
     	height: 160px;
@@ -54,7 +53,7 @@ if(!isset($error)){
         	<div class="span12">
             	<div class="header-block clearfix">
                     <div class="clearfix header-block-pad">
-                        <h1 class="brand"><a href="#"><img src="<?php echo base_url('Boostap2/img/logo1.png');?>" alt=""></a><span><strong>Brand of musical instruments donation </strong></span></h1>
+                        <h1 class="brand"><a href="<?php echo base_url('index.php/startweb');?>"><img src="<?php echo base_url('Boostap2/img/logo1.png');?>" alt=""></a><span><strong>Brand of musical instruments donation </strong></span></h1>
                        <span class="contacts" align="right">
                             <?php
                               $attributes = array("method" => "POST", "autocomplete" => "on");
@@ -119,7 +118,7 @@ if(!isset($error)){
             <li class="container">
                 <div class="social-icons">
                     <table>
-                    <tr><td><h2><font size="7" style="color:white;"><FONT FACE="AngsanaUPC">รายการบริจาค</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
+                    <tr><td><h2><font size="7" style="color:white;"><FONT FACE="AngsanaUPC">รายการบริจาค</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2></td>
                     <td><form id="search-form" action="<?= base_url() ?>index.php/linkquery/SearchshowDonate" method="GET" accept-charset="utf-8" class="navbar-form" >
                     <div class="search-form">
                     <input type="text" name="keyword"  >
@@ -128,7 +127,7 @@ if(!isset($error)){
                     <div class="span4">
                     <tr><td></td>
                     <td>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="Typesearch" value="1" size="3">&nbsp;&nbsp;<bold><font size="3">ประเภท</font></bold> &nbsp;&nbsp;&nbsp;
                     <input type="radio" name="Typesearch" value="2" size="3">&nbsp;&nbsp;<bold><font size="3">ชื่อ</font></bold>&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="Typesearch" value="3" size="3" checked>&nbsp;&nbsp;<bold><font size="3">keyword</font></bold>&nbsp;&nbsp;&nbsp;

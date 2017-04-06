@@ -6,7 +6,6 @@ class querydonate extends CI_Model{
     parent::__construct();
 
   }
-  // $this->db->or_like('donateName', $keyword);
 
   //ค้นหาทั้งหมด
   public function rowcount(){ //นับจำนวนแถวของ table donate
@@ -58,7 +57,6 @@ class querydonate extends CI_Model{
       }
       return false;
    }
-
    //จบการค้นหาตาม Type
 
     //ค้นหาตามชื่อ
@@ -108,6 +106,7 @@ class querydonate extends CI_Model{
      $this->db->or_like('donateType', $keyword);
      $this->db->or_like('donateDetail', $keyword);
      $this->db->or_like('donatesendDetail', $keyword);
+     $this->db->or_like('donateTimestamp', $keyword);
      $this->db->or_like('donateTypeName', $keyword);
      $query = $this->db->get();
      $num = $query->num_rows();
@@ -132,6 +131,7 @@ class querydonate extends CI_Model{
       $this->db->or_like('donateType', $keyword);
       $this->db->or_like('donateDetail', $keyword);
       $this->db->or_like('donatesendDetail', $keyword);
+      $this->db->or_like('donateTimestamp', $keyword);
       $this->db->or_like('donateTypeName', $keyword);
       $this->db->order_by("donateTimestamp", "desc");
       $query = $this->db->get();
@@ -145,10 +145,12 @@ class querydonate extends CI_Model{
    }
    //สิ้นสุดการค้นหาตาม Keyword
 
-   //  $this->db->limit($limit, $start);
-   //  $this->db->select('member.Fname');
-   //  $this->db->from('donate');
-   //  $this->db->join('member','donate.IDCard = member.IDCard');
-   //  $query = $this->db->get();
-   // Examples join Table
+   function SelectdoneteByID($donateID)
+   {
+     $this->db->select('*');
+     $this->db->from('donate');
+     $this->db->where('donateID', $donateID);
+     $rs = $this->db->get();
+     return $rs->row_array();
+   }
 }

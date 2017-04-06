@@ -1,7 +1,4 @@
 <?php
-/**
- *
- */
 class captcha extends CI_Model
 {
   public function __construct()
@@ -10,7 +7,6 @@ class captcha extends CI_Model
       parent::__construct();
       $this->load->helper('captcha');
   }
-
   function CreateCaptcha()
   {
           $vals = array(
@@ -19,12 +15,11 @@ class captcha extends CI_Model
               'font_path'     => 'captcha/times_new_yorker.ttf',
               'img_width'     => 200,
               'img_height'    => 80,
-              'expiration'    => 7200,
+              'expiration'    => 60,
               'word_length'   => 4,
               'font_size'     => 35,
               'img_id'        => 'Imageid',
               'pool'          => '0123456789ABCDEFGHIJKLMNPQRSTUVWXYZ',
-
               // White background and border, black text and red grid
                       'colors'        => array(
                       'background' => array(255, 255, 255),

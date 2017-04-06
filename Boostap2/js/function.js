@@ -9,6 +9,7 @@ function showinput(){
  }
 
 
+
  function openFile() {
      var input = event.target;
      var reader = new FileReader();

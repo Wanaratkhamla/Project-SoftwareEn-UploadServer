@@ -9,7 +9,8 @@ if($data['donateTypeSendID'] == "1"){
  ?>
 <html>
 <head>
-<title>Upload Form</title>
+<title>รายละเอียดของบริจาค</title>
+<link rel="icon" href="Boostap2/img/trumpet.png" type="image/x-icon">
 <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/bootstrap.css');?>" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/responsive.css');?>" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/style.css');?>" type="text/css" media="screen">
@@ -33,7 +34,7 @@ $(document).ready(function(){
       <div class="span12">
         <div class="header-block clearfix">
           <div class="clearfix header-block-pad">
-            <h1 class="brand"><a href="#"><img src="<?php echo base_url('Boostap2/img/logo1.png');?>" alt=""></a><span><strong>Brand of musical instruments donation </strong></span></h1>
+            <h1 class="brand"><a href="<?php echo base_url('index.php/startweb');?>"><img src="<?php echo base_url('Boostap2/img/logo1.png');?>" alt=""></a><span><strong>Brand of musical instruments donation </strong></span></h1>
                        <span class="contacts" align="right">
                             <?php
                             $attributes = array("method" => "POST", "autocomplete" => "on");

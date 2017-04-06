@@ -99,7 +99,14 @@ class usercontroller extends CI_Controller
     echo $check2;
   }
 
-  
+  public function Forgetpassword($email,$Qmember,$Ansmember)
+  {
+      $email = htmlentities($_POST["donateName"]);
+      $Qmember = htmlentities($_POST["donateName"]);
+      $Ansmember = htmlentities($_POST["donateName"]);
+  }
+
+
 }
 
  ?>

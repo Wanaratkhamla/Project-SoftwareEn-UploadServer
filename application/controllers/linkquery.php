@@ -6,7 +6,7 @@ class linkquery extends CI_Controller{
     parent::__construct();
 
   }
-  public function index(){
+  public function index(){ //function สำหรับ query และไปยังหน้า โชว์ของบริจา่ค
     if ($this->session->userdata('Fname')) {
           $config = array();
           $config["base_url"] = base_url() . "index.php/linkquery/index";
@@ -25,7 +25,7 @@ class linkquery extends CI_Controller{
     }
   }
 
-  public function SearchshowDonate()
+  public function SearchshowDonate() //function สำหรับ Search แยกตามประเภท
   {
     $keyword = $_GET['keyword'];
     $Typesearch = $_GET['Typesearch'];
@@ -86,20 +86,10 @@ class linkquery extends CI_Controller{
     $this->load->view("showDonate", $data);
   }
 
-
-  public function Showproduct()
+  public function showlistdetail() //CTRL สำหรับโชว์ สินค้า
   {
-     $donateID = $_GET['donateID'];
-     $IDCard = $this->session->userdata('id');
-     $result['data'] = $this->donate->SelectdonateBydonateID($IDCard,$donateID);
-     $this->load->view('Editdonate' , $result);
-  }
-
-  public function showlistdetail()
-  {
-    $IDCard = $this->session->userdata('id');
     $donateID = $_GET['donateid'];
-    $result['data'] = $this->donate->SelectdonateBydonateID($IDCard,$donateID);
+    $result['data'] = $this->querydonate->SelectdoneteByID($donateID);
     $this->load->view('listDetail' , $result);
   }
 }
