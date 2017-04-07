@@ -50,25 +50,10 @@ if(!isset($error)){
                                 <div class="nav-collapse nav-collapse_ collapse">
                                     <ul class="nav sf-menu">
                                         <li class="active li-first"><a href="<?php echo base_url('index.php/startweb');?>"><em class="hidden-phone"></em>&nbsp;Home</a></li>
-                                        <li><a href="#">Donate Item</a></li>
-                                        <li><a href="#">Statistic</a></li>
+                                        <li><a href="#">Management Member</a></li>
+                                        <li><a href="#">Management announcement</a></li>
                                         <li><a href="#">FAQ</a></li>
-                                        <li class="sub-menu"><a href="#">about</a>
-                                            <ul>
-                                                <li><a href="#">Welcome Message</a></li>
-                                                <li class="sub-menu"><a href="#">Company Profile</a>
-                                                    <ul>
-                                                        <li><a href="#">Our Capabilities</a></li>
-                                                        <li><a href="#">Advantages</a></li>
-                                                        <li><a href="#">Work Team</a></li>
-                                                        <li><a href="#">Partnership</a></li>
-                                                        <li><a href="#">Support</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Our History</a></li>
-                                                <li><a href="#">Testimonials</a></li>
-                                            </ul>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                                 <ul class="social-icons">

@@ -25,6 +25,17 @@ class linkquery extends CI_Controller{
     }
   }
 
+  function SelectCategory()
+  {
+    $keyword = $_GET['keyword'];
+    $this->session->set_userdata('word2', $keyword);
+    if ($keyword != null) {
+      $this->QueryDonateByTypeCategoryPage();
+    }else{
+      $this->index();
+    }
+  }
+
   public function SearchshowDonate() //function สำหรับ Search แยกตามประเภท
   {
     $keyword = $_GET['keyword'];
@@ -42,6 +53,20 @@ class linkquery extends CI_Controller{
     }else{
       $this->index();
     }
+  }
+
+  public function QueryDonateByTypeCategoryPage() //CTRL ค้นหาตาม Type ผ่าน Category
+  {
+    $config = array();
+    $config["base_url"] = base_url() . "index.php/linkquery/QueryDonateByType";
+    $config["total_rows"] = $this->querydonate->rowcountType($this->session->userdata('word2'));
+    $config["per_page"] = 12;
+    $config["uri_segment"] = 3;
+    $this->pagination->initialize($config);
+    $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+    $data["results"] = $this->querydonate->SelectdonateType($config["per_page"], $page ,$this->session->userdata('word2'));
+    $data["links"] = $this->pagination->create_links();
+    $this->load->view("showDonate", $data);
   }
 
   public function QueryDonateByType() //CTRL ค้นหาตาม Type
@@ -90,6 +115,8 @@ class linkquery extends CI_Controller{
   {
     $donateID = $_GET['donateid'];
     $result['data'] = $this->querydonate->SelectdoneteByID($donateID);
+    $result['data2'] = $this->querydonate->SelectShowlistdetail($result['data']['donateName']);
+    $result['row'] = $this->querydonate->Selectrowlistdetail($result['data']['donateName']);
     $this->load->view('listDetail' , $result);
   }
 }

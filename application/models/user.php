@@ -34,7 +34,6 @@ class user extends CI_Model
 
   function checkuser($Email) //เช็คว่า email ซ้ำกันหรือไม่
   {
-    # code...
     $rs = $this->db->select('*')->from('member')->where('Email' , $Email)->get();
     if($rs->num_rows() > 0){
       return 1;  //แสดงว่าซ้ำ
@@ -43,7 +42,8 @@ class user extends CI_Model
     }
   }
 
-  function insertuser($IDCard,$Fname,$Lname,$Address,$Tel,$Email,$Password,$Province,$Didtrict,$Postcode){ //insert ข้อมูลuser
+  function insertuser($IDCard,$Fname,$Lname,$Address,$Tel,$Email,$Password,$Province,$Didtrict,$Postcode,$Qmember,$Ansmember,$userPathIMG){ //insert ข้อมูลuser
+    $now = date('Y-m-d H:i:s');
     $sql = array(
       'IDCard' => $IDCard,
       'Fname' => $Fname,
@@ -54,7 +54,12 @@ class user extends CI_Model
       'Password' => $Password,
       'Province' => $Province,
       'Didtrict' => $Didtrict,
-      'Postcode' => $Postcode
+      'Postcode' => $Postcode,
+      'Qmember' => $Qmember,
+      'Ansmember' => $Ansmember,
+      'memberType' => 0,
+      'userPathIMG' => $userPathIMG,
+      'userTimestamp' => $now
     );
     $this->db->insert('member',$sql);
   }

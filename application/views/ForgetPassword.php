@@ -149,8 +149,8 @@ if(!isset($error)){
                     </div>
                     <div class="modal-footer">
                         <center>
-                        <button  type="submit" class="btn btn_" id='donate'><a href="<?php echo base_url('index.php/linkdonate');?>">ฉันต้องการจะบริจาคสิ่งของ</a></button>&nbsp;&nbsp;&nbsp;
-                        <button  type="submit" class="btn btn_" id='receive'><a href="<?php echo base_url('index.php/linkquery');?>">ฉันต้องการรับบริจาคสิ่งของ</a></button>
+                          <button  type="submit" class="btn btn_" id='donate'><a href="<?php echo base_url('index.php/linkdonate');?>">I Can help</a></button>&nbsp;&nbsp;&nbsp;
+                          <button  type="submit" class="btn btn_" id='receive'><a href="<?php echo base_url('index.php/linkquery');?>">I need help</a></button>
                         </center>
                     </div>
                 </form>
@@ -174,7 +174,7 @@ if(!isset($error)){
                           <span class="contacts">
                               <h5>เข้าสู่ระบบ</h5>
                               <a href="#" class="btn btn_" role="button" data-toggle="modal" data-target="#login-modal" id="loginmodal"><span style="color:#FFFFFF;text-align:center;">Login</span></a>
-                              <br><br>สมัครสมาชิก : <a href="#" data-toggle="modal" data-target="#register-modal">register</a>
+                              <br><br>สมัครสมาชิก : <a href="<?php echo base_url('index.php/linkregister');?>" data-toggle="modal" data-target="#register-modal">register</a>
                           </span>
 
                     </div>
@@ -185,10 +185,6 @@ if(!isset($error)){
                                 <div class="nav-collapse nav-collapse_ collapse">
                                     <ul class="nav sf-menu">
                                         <li class="active li-first"><a href="<?php echo base_url('index.php/startweb');?>"><em class="hidden-phone"></em>&nbsp;Home</a></li>
-                                        <?php if ($this->session->userdata('Fname')){ ?>
-                                          <li><a href="#">Donate Item</a></li>
-                                          <?php } ?>
-
                                         <li><a href="#">Statistic</a></li>
                                         <li><a href="#">FAQ</a></li>
                                         <li class="sub-menu"><a href="#">about</a>

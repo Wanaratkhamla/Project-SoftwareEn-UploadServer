@@ -6,13 +6,13 @@ if(!isset($error)){
 } ?>
 <html>
 <head>
-    <title>Reset Password</title>
+    <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Your description">
     <meta name="keywords" content="Your keywords">
     <meta name="author" content="Your name">
-    <link rel="icon" href="Boostap2/img/trumpet.png" type="image/x-icon">
+    <link rel="icon" href="<?php echo base_url('Boostap2/img/trumpet.png');?>" type="image/x-icon">
     <link rel="shortcut icon" href="<?php echo base_url('Boostap2/img/trumpet.png');?>" type="image/x-icon" />
     <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/bootstrap.css');?>" type="text/css" media="screen">
     <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/responsive.css');?>" type="text/css" media="screen">
@@ -26,7 +26,6 @@ if(!isset($error)){
     <script type="text/javascript" src="<?php echo base_url('Boostap2/js/superfish.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('Boostap2/js/pop-up.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('Boostap2/js/jquery.ui.totop.js');?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('Boostap2/js/function.js');?>"></script>
     <script>
     <?php if (isset($word)) {
      $words = $word;
@@ -42,9 +41,6 @@ if(!isset($error)){
         					$("#submitlogin").prop('disabled', true);
         			}
         		});
-            $('#submitreset').click(function () {
-                checkrepass()
-            });
             $('#Refreshcaptcha').click(function() {
                refreshcaptcha();
             });
@@ -72,7 +68,7 @@ if(!isset($error)){
             <!-- Begin # DIV Form -->
             <div id="div-forms">
                 <!-- Begin # Login Form -->
-                <form id="login-form">
+                  <form id="login-form">
                     <div class="modal-body">
                         <div id="div-login-msg">
                             <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
@@ -109,7 +105,8 @@ if(!isset($error)){
                           <button type="button" class="btn btn-link"><a href="<?php echo base_url('index.php/linkregister');?>" style="color:black;">Register</a></button>
                         </div>
                     </div>
-                    </form>
+                  </form>
+
                 <!-- End # Login Form -->
 
                 <!-- Begin | Lost Password Form -->
@@ -173,12 +170,12 @@ if(!isset($error)){
                 <div class="header-block clearfix">
                     <div class="clearfix header-block-pad">
                         <h1 class="brand"><a href="<?php echo base_url('index.php/startweb');?>"><img src="<?php echo base_url('Boostap2/img/logo1.png');?>" alt=""></a><span><strong>Brand of musical instruments donation </strong></span></h1>
+
                           <span class="contacts">
                               <h5>เข้าสู่ระบบ</h5>
                               <a href="#" class="btn btn_" role="button" data-toggle="modal" data-target="#login-modal" id="loginmodal"><span style="color:#FFFFFF;text-align:center;">Login</span></a>
                               <br><br>สมัครสมาชิก : <a href="<?php echo base_url('index.php/linkregister');?>" data-toggle="modal" data-target="#register-modal">register</a>
                           </span>
-
                     </div>
                     <div class="navbar navbar_ clearfix">
                         <div class="navbar-inner navbar-inner_">
@@ -228,31 +225,25 @@ if(!isset($error)){
     </div>
 </header>
 <br>
-<table width="400" height="350" border="1" align="center">
-        <td>
-          <div class="" align="center">
-            <form id="newsletter" method="post">
-                <label style="color:white;">กรุณาเลือกคำถามที่ท่านตั้งไว้</label>
-                <span style="display: none;" id="Texterror" ></span>
-                <br>
-                <br>
-                <div class="clearfix">
-                <input type="hidden" name="IDCard" value="<?php echo $IDCard;?>" id="IDCard">
-                รหัสผ่านใหม่ : <input type="Password" name="Password" id="Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                 placeholder="Enter password"><br><br><br>
-                ยืนยันรหัสผ่าน : <input type="Password" name="RePassword" id="RePassword" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                 placeholder="Enter Repassword">
-                <button type="button" name="button" class="btn btn_" id="submitreset">ตกลง</button>
-                </div>
-            </form>
-          </div>
 
+<table width="1150" height="400" border="1" align="center">
+        <td>
+<h2 align="center"><font size="7" style="color:white;"><FONT FACE="AngsanaUPC">รอการยืนยันจากทางเว็บไซต์ WeShared4you</font></h2>
         </td>
     </table>
 
 <footer>
     <div class="container">
         <div class="row">
+            <div class="span4 float2">
+                <form id="newsletter" method="post" >
+                    <label>Newsletter</label>
+                    <div class="clearfix">
+                        <input type="text" onFocus="if(this.value =='Enter e-mail here' ) this.value=''" onBlur="if(this.value=='') this.value='Enter e-mail here'" value="Enter e-mail here" >
+                        <a href="#" onClick="document.getElementById('newsletter').submit()" class="btn btn_">subscribe</a>
+                    </div>
+                </form>
+            </div>
             <div class="span8 float">
                 <ul class="footer-menu">
                     <li><a href="#" class="current">Home Page</a>|</li>

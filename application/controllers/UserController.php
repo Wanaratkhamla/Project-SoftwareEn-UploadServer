@@ -17,82 +17,77 @@ class usercontroller extends CI_Controller
 
   public function index()
   {
-    # code...
-     $idcade = htmlentities($_POST["idcard"]);
-     $fname = htmlentities($_POST["fname"]);
-     $lname = htmlentities($_POST["lname"]);
-     $address = htmlentities($_POST["Address"]);
-     $tel = htmlentities($_POST["Tel"]);
-     $email = htmlentities($_POST["Email"]);
-     $password = htmlentities($_POST["password"]);
-     $conpassword = htmlentities($_POST["conpassword"]);
+     $IDCard = htmlentities($_POST["IDCard"]);
+     $Fname = htmlentities($_POST["Fname"]);
+     $Lname = htmlentities($_POST["Lname"]);
+     $Address = htmlentities($_POST["Address"]);
+     $Tel = htmlentities($_POST["Tel"]);
+     $Email = htmlentities($_POST["Email"]);
+     $Password = htmlentities($_POST["Password"]);
+     $confirmPassword = htmlentities($_POST["confirmPassword"]);
      $Province = htmlentities($_POST["Province"]);
      $Didtrict = htmlentities($_POST["Didtrict"]);
      $Postcode = htmlentities($_POST["Postcode"]);
-
-     $Cuser = $this->user->checkuser($email);
-     $Cid = $this->user->checkssid($idcade);
-     $Overlapid =$this->user->checkoverlapssid($idcade);
-
-     if ($Cuser == 0) { //เช็ค email ซ้ำกันหรือไม่
-       if ($Overlapid == 0) { //เช็คว่า ID ซ้ำหรือไม่หรือไม่
-          if ($Cid == 1) {  //เช็คว่า ID ถูกหรือไม่
-            if ($password == $conpassword) { //เช็คว่า พาสเวิด ตรงกันหรือไม่
-                  $encodepass = hash('sha256', $password);
-                  $this->user->insertuser($idcade,$fname,$lname,$address,$tel,$email,$username,$encodepass,$Province,$Didtrict,$Postcode);
-                  echo '<script language="javascript">';
-                  echo 'alert("registry Complete!!!!")';
-                  echo '</script>';
-                  $this->load->helper(array('form'));
-                  $this->load->view('login');
-            }else{
-              $captcha = $this->captcha->CreateCaptcha();
-              echo '<script language="javascript">';
-              echo 'alert("Password incorrect!!!")';
-              echo '</script>';
-              $this->load->helper(array('form'));
-              $this->load->view('register' , $captcha);
+     $Qmember = htmlentities($_POST["Qmember"]);
+     $Ansmember = htmlentities($_POST["Ansmember"]);
+     $Passwordhash = hash('sha256', $Password);
+     $Cuser = $this->user->checkuser($Email);
+      $Overlapid =$this->user->checkoverlapssid($IDCard);
+      $new_name = time().rand();
+      $config['file_name'] = $new_name;
+      $config['upload_path']          = 'image/';
+      $config['allowed_types']        = 'gif|jpg|png';
+      $config['max_size']             = 1024;
+      $config['max_width']            = 1024;
+      $config['max_height']           = 768;
+      $this->load->library('upload', $config);
+    if (($_POST["IDCard"] != null) && ($_POST["Fname"] != null) && ($_POST["Lname"] != null) && ($_POST["Address"] != null) && ($_POST["Tel"] != null) &&
+      ($_POST["Email"] != null) && ($_POST["Password"] != null) && ($_POST["confirmPassword"] != null) && ($_POST["Province"] != null) && ($_POST["Didtrict"] != null) &&
+    ($_POST["Postcode"] != null) && ($_POST["Qmember"] != null) && ($_POST["Ansmember"] != null)) {
+      if ($Password == $confirmPassword) { //check password ตรงกันหรือไม่ ?
+        if ($Cuser == 0) { //เช็ค email ซ้ำกันหรือไม่
+          if ($Overlapid == 0) { //เช็คว่า ID ซ้ำหรือไม่หรือไม่
+            if ($this->upload->do_upload('userPathIMG')) { //เช็คว่า อัพรูปได้หรือไม่
+              $imagepath = $new_name . $this->upload->data('file_ext');
+              $this->user->insertuser($IDCard,$Fname,$Lname,$Address,$Tel,$Email,$Passwordhash,$Province,$Didtrict,$Postcode,$Qmember,$Ansmember,$imagepath);
+              $check = 4;
+              echo $check;
+            } else {
+              $check = 3;
+              echo $check;
             }
           }else {
-            $captcha = $this->captcha->CreateCaptcha();
-            echo '<script language="javascript">';
-            echo 'alert("บัตรประชาชนไม่ถูกต้อง !!!")';
-            echo '</script>';
-            $this->load->helper(array('form'));
-            $this->load->view('register' , $captcha);
+            $check = 2;
+            echo $check;
           }
         }else {
-          $captcha = $this->captcha->CreateCaptcha();
-          echo '<script language="javascript">';
-          echo 'alert("บัตรประชาชนนี้ถูกใช้แล้ว!!!")';
-          echo '</script>';
-          $this->load->helper(array('form'));
-         $this->load->view('register' , $captcha);
-       }
-     }else {
-       $captcha = $this->captcha->CreateCaptcha();
-       echo '<script language="javascript">';
-       echo 'alert("Emailนี้ถูกใช้งานแล้ว!!!")';
-       echo '</script>';
-      $this->load->helper(array('form'));
-      $this->load->view('register' , $captcha);
-     }
-     // $this->user->insertuser($idcade,$fname,$lname,$address,$tel,$email,$username,$password,$Province,$Didtrict,$Postcode);
-    // $this->user->insertuser('2561200748184','Wanart','khamla','119','0827505687','nos@kkumail.com','admin123','admin12345','ขอนแก่น','เมือง','40000');
+          $check = 1;
+          echo $check;
+        }
+      }else {
+        $check = 0;
+        echo $check;
+      }
+    }else {
+      $check = 5;
+      echo $check;
+    }
   }
 
-  public function checkuser(){
+  public function checkuser()
+  {
     $inputpage = $this->input->post("email");
-    $ccc = $this->user->checkuser($inputpage);
-    echo $ccc;
+    $check = $this->user->checkuser($inputpage);
+    echo $check;
   }
+
   public function checkid()
   {
     $inputid = $this->input->post("id");
     $check1 = $this->user->checkoverlapssid($inputid);
     echo $check1;
   }
-  public function checkidusenot()  //เช็คว่า ID ถูกต้องตามหลักหรือไม่
+  public function checkidusenot()  //เช็คว่า ID ถูกต้องตามหลักหรือไม่ *ยังไม่ได้ใช้
   {
     $inputid2 = $this->input->post("id");
     $check2 = $this->user->checkssid($inputid2);
@@ -105,8 +100,6 @@ class usercontroller extends CI_Controller
       $Qmember = htmlentities($_POST["donateName"]);
       $Ansmember = htmlentities($_POST["donateName"]);
   }
-
-
 }
 
  ?>

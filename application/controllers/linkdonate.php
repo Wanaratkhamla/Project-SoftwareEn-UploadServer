@@ -114,7 +114,7 @@ class linkdonate extends CI_Controller
     $this->load->library('upload', $config);
     if (($_POST["donateName"] == null) || ($_POST["donateLength"] == null) || ($_POST["donatewidth"] == null) || ($_POST["donateTypesend"] == null) ||
     ($_POST["donateweight"] == null) || ($_POST['donateEA'] == null) || ($_POST['donatecolor'] == null) || ($_POST['donatecondition'] == null)
-    || ($_POST['donateType'] == null) || ($_POST['donateDetail'] == null) || ($_POST['donateID'] == null))) {
+    || ($_POST['donateType'] == null) || ($_POST['donateDetail'] == null) || ($_POST['donateID'] == null)) {
 
             $IDCard = $this->session->userdata('id');
             $donateID = htmlentities($_POST["donateID"]);

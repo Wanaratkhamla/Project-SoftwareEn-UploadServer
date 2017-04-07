@@ -2,91 +2,96 @@
 if($data['donateTypeSendID'] == "1"){
   $send = "ส่งไปรษณีย์";
 }elseif($data['donateTypeSendID'] == "2"){
-  $send = "ส่งไปรษณีย์";
+  $send = "รับที่องค์กร";
 }else{
   $send = "นัดรับ";
 }
+$id1 = $data['donateID'];
  ?>
 <html>
 <head>
 <title>รายละเอียดของบริจาค</title>
-<link rel="icon" href="Boostap2/img/trumpet.png" type="image/x-icon">
+<link rel="icon" href="<?php echo base_url('Boostap2/img/trumpet.png');?>" type="image/x-icon">
 <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/bootstrap.css');?>" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/responsive.css');?>" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/style.css');?>" type="text/css" media="screen">
-<link rel="stylesheet" href="<?php echo base_url('Boostap2/css/mdb.min.css'); ?>" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/jquery.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/jquery.easing.1.3.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/jquery.ui.totop.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/forms.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/function.js');?>"></script>
-<script>
-$(document).ready(function(){
-});
-</script>
-
+<script type="text/javascript" src="<?php echo base_url('Boostap2/js/bootstrap.js');?>"></script>
 </head>
 <body>
-<header>
-  <div class="container">
-    <div class="row">
-      <div class="span12">
-        <div class="header-block clearfix">
-          <div class="clearfix header-block-pad">
-            <h1 class="brand"><a href="<?php echo base_url('index.php/startweb');?>"><img src="<?php echo base_url('Boostap2/img/logo1.png');?>" alt=""></a><span><strong>Brand of musical instruments donation </strong></span></h1>
-                       <span class="contacts" align="right">
-                            <?php
-                            $attributes = array("method" => "POST", "autocomplete" => "on");
-                            echo form_open("checklogin/Logoutuser", $attributes);?>
-                         <h5><img height=50 width=50 src="<?php echo base_url("cart.png"); ?>"  /> | สวัสดีครับ : <span>คุณ<?php echo $this->session->userdata('Fname'); ?></span></h5>
-                              <button class="btn btn_" type="submit"><span style="color:#FFFFFF;text-align:center;">Logout</span></button>
-                         <?php echo form_close(); ?>
-                        </span>
-          </div>
+  <header>
+      <div class="container">
+      	<div class="row">
+          	<div class="span12">
+              	<div class="header-block clearfix">
+                      <div class="clearfix header-block-pad">
+                          <h1 class="brand"><a href="<?php echo base_url('index.php/startweb');?>"><img src="<?php echo base_url('Boostap2/img/logo1.png');?>" alt=""></a><span><strong>Brand of musical instruments donation </strong></span></h1>
+                         <span class="contacts" align="right">
+                              <?php
+                                $attributes = array("method" => "POST", "autocomplete" => "on");
+                                echo form_open("checklogin/Logoutuser", $attributes);?>
+                                <h5><img height=50 width=50 src="<?php echo base_url("cart.png"); ?>"  /> | สวัสดีครับ : <span>คุณ<?php echo $this->session->userdata('Fname'); ?></span></h5>
+                                <button class="btn btn_" type="submit"><span style="color:#FFFFFF;text-align:center;" >Logout</span></button>
+                              <?php echo form_close(); ?>
+                          </span>
+                      </div>
 
-          <div class="navbar navbar_ clearfix">
-            <div class="navbar-inner navbar-inner_">
-              <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse_">MENU</a>
-                <div class="nav-collapse nav-collapse_ collapse">
-                  <ul class="nav sf-menu">
-                    <li class="active li-first"><a href="<?php echo base_url('index.php/startweb');?>"><em class="hidden-phone"></em>&nbsp;Home</a></li>
-                    <li><a href="#">Donate Item</a></li>
-                    <li><a href="#">Statistic</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li class="sub-menu"><a href="#">about</a>
-                      <ul>
-                        <li><a href="#">Welcome Message</a></li>
-                        <li class="sub-menu"><a href="#">Company Profile</a>
-                          <ul>
-                            <li><a href="#">Our Capabilities</a></li>
-                            <li><a href="#">Advantages</a></li>
-                            <li><a href="#">Work Team</a></li>
-                            <li><a href="#">Partnership</a></li>
-                            <li><a href="#">Support</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#">Our History</a></li>
-                        <li><a href="#">Testimonials</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                <ul class="social-icons">
-                  <li><a href="#"><img src="<?php echo base_url('Boostap2/img/icon-1.png');?>" alt=""></a></li>
-                  <li><a href="#"><img src="<?php echo base_url('Boostap2/img/icon-2.png');?>" alt=""></a></li>
-                  <li><a href="#"><img src="<?php echo base_url('Boostap2/img/icon-3.png');?>" alt=""></a></li>
-                  <li><a href="#"><img src="<?php echo base_url('Boostap2/img/icon-4.png');?>" alt=""></a></li>
-                </ul>
+                      <div class="navbar navbar_ clearfix">
+                          <div class="navbar-inner navbar-inner_">
+                              <div class="container">
+                                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse_">MENU</a>
+                                  <div class="nav-collapse nav-collapse_ collapse">
+                                      <ul class="nav sf-menu">
+                                          <li class="active li-first"><a href="<?php echo base_url('index.php/startweb');?>"><em class="hidden-phone"></em>&nbsp;Home</a></li>
+
+                                          <li><a href="#">Donate Item</a></li>
+                                          <li><a href="#">Statistic</a></li>
+                                          <li class="sub-menu"><a href="#">Category</a>
+                                            <ul>
+                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสาย');?>">เครื่องสาย</a></li>
+                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>">เครื่องตี</a></li>
+                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>">เครื่องดีด</a></li>
+                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>">เครื่องสี</a></li>
+                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องเป่า');?>">เครื่องเป่า</a></li>
+                                            </ul>
+                                          <li><a href="#">FAQ</a></li>
+                                          <li class="sub-menu"><a href="#">about</a>
+                                              <ul>
+                                                  <li><a href="#">Welcome Message</a></li>
+                                                  <li class="sub-menu"><a href="#">Company Profile</a>
+                                                      <ul>
+                                                          <li><a href="#">Our Capabilities</a></li>
+                                                          <li><a href="#">Advantages</a></li>
+                                                          <li><a href="#">Work Team</a></li>
+                                                          <li><a href="#">Partnership</a></li>
+                                                          <li><a href="#">Support</a></li>
+                                                      </ul>
+                                                  </li>
+                                                  <li><a href="#">Our History</a></li>
+                                                  <li><a href="#">Testimonials</a></li>
+                                              </ul>
+                                          </li>
+                                      </ul>
+                                  </div>
+                                  <ul class="social-icons">
+                                      <li><a href="#"><img src="<?php echo base_url('Boostap2/img/icon-1.png');?>" alt=""></a></li>
+                                      <li><a href="#"><img src="<?php echo base_url('Boostap2/img/icon-2.png');?>" alt=""></a></li>
+                                      <li><a href="#"><img src="<?php echo base_url('Boostap2/img/icon-3.png');?>" alt=""></a></li>
+                                      <li><a href="#"><img src="<?php echo base_url('Boostap2/img/icon-4.png');?>" alt=""></a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                       </div>
+                  </div>
               </div>
-            </div>
-          </div>
-        </div>
+         </div>
       </div>
-    </div>
-  </div>
-</header>
+  </header>
 <!--=============================================================================================-->
 <section id="content">
   <div class="sub-content">
@@ -103,6 +108,7 @@ $(document).ready(function(){
 <br>
         <br>
 <div class="span5">
+
   <?php
     $attributes = array("method" => "POST", "autocomplete" => "on");
     echo form_open("linkdonate/linkEditdonate", $attributes);?>
@@ -130,10 +136,57 @@ $(document).ready(function(){
 
     <button type="button" class="btn btn_ btn-small_" id="Edit"><a style="color:white;" href="<?php echo base_url('index.php/linkquery');?>">กลับสู่หน้าเลือกสินค้า</a></button>
   <?php echo form_close(); ?></td></tr></table>
+<!-- เพิ่มเข้ามา -->
 
-
+  <!-- เพิ่มเข้ามา -->
   </div>
         </div></div></div></section>
+        <section id="content" class="main-content">
+        <div class="container">
+          <div class="row">
+              <div class="span12">
+                  <ul class="thumbnails">
+                    <br>
+                    <?php if ($data2 == null) {?>
+                        <br><br>
+                        <div class="" align="center">
+                          <span><font size="6"><br>ไม่มีข้อมูล</font></span>
+                        </div>
+
+                  <?php  }else if($row == 1){?>
+                    <br><br>
+                    <div class="" align="center">
+                      <span><font size="6"><br>ไม่มีข้อมูล</font></span>
+                    </div>
+                  <?php
+                }else{foreach($data2 as $data) {
+                      if ($data->donateID != $id1) {
+                      ?>
+                    <li class="span3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                              <a href="<?php echo base_url("index.php/linkquery/showlistdetail?donateid=$data->donateID");?>">
+                                <div class="img-resize"><img id='output' src="<?php echo base_url("image/$data->donatePathIMG"); ?>"  alt=""/></div></a>
+                                <h3><?php echo $data->donateName ?></h3>
+                                <h5>ผู้บริจาค : คุณ<?php echo $data->Fname . " " . $data->Lname ?></h5>
+                            </div>
+                            <div class="thumbnail-pad">
+                                <a href="<?php echo base_url("index.php/linkquery/showlistdetail?donateid=$data->donateID");?>" class="btn btn_">more info</a>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                      }
+                    }
+                    ?>
+                <?php } ?>
+
+                  </ul>
+              </div>
+           </div>
+        </div>
+        </section>
+
 <!--========================================================================================================-->
 <footer>
   <div class="container">
@@ -151,8 +204,5 @@ $(document).ready(function(){
     </div>
   </div>
 </footer>
-
-
-
 </body>
 </html>

@@ -58,6 +58,8 @@
    }
  }
 
+
+
 $(function() {
 
     var $formLogin = $('#login-form');
@@ -159,6 +161,42 @@ $(function() {
               });
             return false;
               break;
+            case "Registerform":
+             var url = "http://localhost/soften/index.php/usercontroller"
+             var formData = new FormData($(this)[0]);
+             $.ajax({
+                 url: url,
+                 type: 'POST',
+                 data: formData,
+                 processData: false,
+                 contentType: false,
+                 success:function (res) {
+                   if (res == 0) {
+                     $("#confirmPassword").css("background-color", "#ff6666");
+                     $("#Errorpassword").text("กรุณากรอกพาสเวิดให้ถูกต้อง");
+                     $("#Errorpassword").css("color", "red");
+                   }else if (res == 1) {
+                     $("#Email").css("background-color", "#ff6666");
+                     $("#Emailerror").text("Email นี้ถูกใช้งานแล้ว");
+                     $("#Emailerror").css("color", "red");
+                   }else if (res == 2) {
+                     $("#IDCard").css("background-color", "#ff6666");
+                     $("#checkerrorID").text("บัตรประชาชนนี้ถูกใช้งานแล้ว");
+                     $("#checkerrorID").css("color", "red");
+                   }else if (res == 3) {
+                     $("#Errorimage").text("บัตรประชาชนนี้ถูกใช้งานแล้ว");
+                     $("#Errorimage").css("color", "red");
+                   }else if (res == 4) {
+                     alert("สมัครสมาชิกเสร็จสิ้น รอการยืนยันจากทางเว็บไซต์");
+                     window.location.href="http://localhost/soften/index.php/startweb";
+                   }else if (res == 5) {
+                     $("#alertmessege").text("กรุณากรอกข้อมูลให้ครบ");
+                     $("#alertmessege").css("color", "red");
+                   }
+                 }
+             }); // End: $.ajax()
+             return false;
+               break;
             default:
                 return false;
         }

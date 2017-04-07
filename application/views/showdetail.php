@@ -2,7 +2,7 @@
 if($data['donateTypeSendID'] == "1"){
   $send = "ส่งไปรษณีย์";
 }elseif($data['donateTypeSendID'] == "2"){
-  $send = "ส่งไปรษณีย์";
+  $send = "รับที่องค์กร";
 }else{
   $send = "นัดรับ";
 }
@@ -21,27 +21,6 @@ if($data['donateTypeSendID'] == "1"){
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/jquery.ui.totop.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/forms.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/function.js');?>"></script>
-<script>
-$(document).ready(function(){
-    // $('#Edit').click(function() {
-    //   var url = 'http://example.com/vote/' + Username;
-    //   var form = $('<form action="' + url + '" method="post">' +
-    //     '<input type="text" name="donateID" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donateName" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donateSize" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donateweight" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donateEA" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donatecolor" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donateType" value="' + Return_URL + '" />' +
-    //     '<input type="text" name="donateDetail" value="' + Return_URL + '" />' +
-    //     '<input type="file" name="donatePathIMG" value="' + Return_URL + '" />' +
-    //     '</form>');
-    //   $('body').append(form);
-    //   form.submit();
-    // });
-});
-</script>
-
 </head>
 <body>
 <header>

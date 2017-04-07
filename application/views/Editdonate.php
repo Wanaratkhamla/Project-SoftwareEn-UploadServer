@@ -69,7 +69,7 @@ if(!isset($error)){
                             <?php
                               $attributes = array("method" => "POST", "autocomplete" => "on");
                               echo form_open("checklogin/Logoutuser", $attributes);?>
-                              <h5><img height=50 width=50 src="<?php echo base_url("cart.png"); ?>"  /> | สวัสดีครับ : <span>คุณ<?php echo $this->session->userdata('Fname'); ?></span></h5>
+                              <h5>สวัสดีครับ : <span>คุณ<?php echo $this->session->userdata('Fname'); ?></span></h5>
                               <button class="btn btn_" type="submit"><span style="color:#FFFFFF;text-align:center;">Logout</span></button>
                             <?php echo form_close(); ?>
                         </span>

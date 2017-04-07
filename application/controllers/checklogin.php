@@ -33,7 +33,8 @@ class checklogin extends CI_Controller
         }
     }else{
       if ($result['memberType'] == 0) { //check รอการอัพเดต
-        # code...
+        $check = 7;
+        echo $check;
       }elseif ($result['memberType'] == 1) { //check member ?
         $sess_array = array(
           'id' => $result['IDCard'],

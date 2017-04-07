@@ -145,7 +145,7 @@ class querydonate extends CI_Model{
    }
    //สิ้นสุดการค้นหาตาม Keyword
 
-   function SelectdoneteByID($donateID)
+   function SelectdoneteByID($donateID) //select ไว้ให้โชว์ หน้า listdetail
    {
      $this->db->select('*');
      $this->db->from('donate');
@@ -153,4 +153,33 @@ class querydonate extends CI_Model{
      $rs = $this->db->get();
      return $rs->row_array();
    }
+
+   function SelectShowlistdetail($keyword) //select ไว้ให้โชว์ หน้า listdetail
+   {
+     $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname');
+     $this->db->from('donate');
+     $this->db->join('member','donate.IDCard = member.IDCard');
+     $this->db->like('donateName', $keyword);
+     $this->db->limit(4);
+     $this->db->order_by("donateTimestamp", "desc");
+     $query = $this->db->get();
+     foreach ($query->result() as $row) {
+         $data[] = $row;
+     }
+     return $data;
+   }
+
+   function Selectrowlistdetail($keyword) //select ไว้ให้โชว์ หน้า listdetail
+   {
+     $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname');
+     $this->db->from('donate');
+     $this->db->join('member','donate.IDCard = member.IDCard');
+     $this->db->like('donateName', $keyword);
+     $this->db->limit(4);
+     $this->db->order_by("donateTimestamp", "desc");
+     $query = $this->db->get();
+     return $query->num_rows();;
+   }
+
+
 }

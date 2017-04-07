@@ -31,7 +31,7 @@ if(!isset($error)){
             jQuery('.camera_wrap').camera();
             $("#ccha").keyup(function() {
         			var getcode = $('#ccha').val();
-        			if (getcode == "0000") {
+        			if (getcode == getcode2) {
         					$("#submitlogin").prop('disabled', false);
         			}else{
         					$("#submitlogin").prop('disabled', true);
@@ -146,8 +146,8 @@ if(!isset($error)){
                     </div>
                     <div class="modal-footer">
                         <center>
-                        <button  type="submit" class="btn btn_" id='donate'><a href="<?php echo base_url('index.php/linkdonate');?>">ฉันต้องการจะบริจาคสิ่งของ</a></button>&nbsp;&nbsp;&nbsp;
-                        <button  type="submit" class="btn btn_" id='receive'><a href="<?php echo base_url('index.php/linkquery');?>">ฉันต้องการรับบริจาคสิ่งของ</a></button>
+                        <button  type="submit" class="btn btn_" id='donate'><a href="<?php echo base_url('index.php/linkdonate');?>">I Can help</a></button>&nbsp;&nbsp;&nbsp;
+                        <button  type="submit" class="btn btn_" id='receive'><a href="<?php echo base_url('index.php/linkquery');?>">I need help</a></button>
                         </center>
                     </div>
                 </form>
@@ -178,7 +178,7 @@ if(!isset($error)){
                           <span class="contacts">
                               <h5>เข้าสู่ระบบ</h5>
                               <a href="#" class="btn btn_" role="button" data-toggle="modal" data-target="#login-modal" id="loginmodal"><span style="color:#FFFFFF;text-align:center;">Login</span></a>
-                              <br><br>สมัครสมาชิก : <a href="#" data-toggle="modal" data-target="#register-modal">register</a>
+                              <br><br>สมัครสมาชิก : <a href="<?php echo base_url('index.php/linkregister');?>" data-toggle="modal" data-target="#register-modal">register</a>
                           </span>
                           <?php
                         }
