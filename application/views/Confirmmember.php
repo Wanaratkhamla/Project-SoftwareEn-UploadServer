@@ -35,7 +35,7 @@ if(!isset($error)){
             jQuery('.camera_wrap').camera();
             $("#ccha").keyup(function() {
         			var getcode = $('#ccha').val();
-        			if (getcode == getcode2) {
+        			if (getcode == "0000") {
         					$("#submitlogin").prop('disabled', false);
         			}else{
         					$("#submitlogin").prop('disabled', true);

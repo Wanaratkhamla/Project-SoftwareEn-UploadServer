@@ -1561,5 +1561,15 @@ div.sizelink a{
   margin: 4px;
   border: 2px solid #000000;
   padding: 2px;
+}
 
+div.img-resize2 img {
+  width: 240px;
+  height: 230px;
+}
+
+div.img-resize2 {
+  width: 225px;
+  overflow: hidden;
+  text-align: center;
 }

@@ -49,6 +49,14 @@ if($data['donateTypeSendID'] == "1"){
                     <li class="active li-first"><a href="<?php echo base_url('index.php/startweb');?>"><em class="hidden-phone"></em>&nbsp;Home</a></li>
                     <li><a href="#">Donate Item</a></li>
                     <li><a href="#">Statistic</a></li>
+                    <li class="sub-menu"><a href="#">Category</a>
+                      <ul>
+                        <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสาย');?>" id="s1">เครื่องสาย</a></li>
+                        <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>" id="s2">เครื่องตี</a></li>
+                        <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>" id="s3">เครื่องดีด</a></li>
+                        <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>" id="s4">เครื่องสี</a></li>
+                        <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องเป่า');?>" id="s5">เครื่องเป่า</a></li>
+                      </ul>
                     <li><a href="#">FAQ</a></li>
                     <li class="sub-menu"><a href="#">about</a>
                       <ul>
@@ -136,8 +144,16 @@ if($data['donateTypeSendID'] == "1"){
 
       <div class="span8 float">
         <ul class="footer-menu">
-          <li><a href="#" class="current">Home Page</a>|</li>
+          <li><a href="<?php echo base_url('index.php/startweb');?>" class="current">Home Page</a>|</li>
           <li><a href="#">Statistic</a>|</li>
+          <li class="sub-menu"><a href="#">Category</a>
+            <ul>
+              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสาย');?>" id="s6">เครื่องสาย</a></li>
+              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>" id="s7">เครื่องตี</a></li>
+              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>" id="s8">เครื่องดีด</a></li>
+              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>" id="s9">เครื่องสี</a></li>
+              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องเป่า');?>" id="s10">เครื่องเป่า</a></li>
+            </ul>
           <li><a href="#">FAQ</a>|</li>
           <li><a href="#">about</a>|</li>
         </ul>

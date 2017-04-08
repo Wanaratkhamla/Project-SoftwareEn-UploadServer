@@ -53,11 +53,11 @@ $id1 = $data['donateID'];
                                           <li><a href="#">Statistic</a></li>
                                           <li class="sub-menu"><a href="#">Category</a>
                                             <ul>
-                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสาย');?>">เครื่องสาย</a></li>
-                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>">เครื่องตี</a></li>
-                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>">เครื่องดีด</a></li>
-                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>">เครื่องสี</a></li>
-                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องเป่า');?>">เครื่องเป่า</a></li>
+                                              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสาย');?>" id="s1">เครื่องสาย</a></li>
+                                              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>" id="s2">เครื่องตี</a></li>
+                                              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>" id="s3">เครื่องดีด</a></li>
+                                              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>" id="s4">เครื่องสี</a></li>
+                                              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องเป่า');?>" id="s5">เครื่องเป่า</a></li>
                                             </ul>
                                           <li><a href="#">FAQ</a></li>
                                           <li class="sub-menu"><a href="#">about</a>
@@ -132,8 +132,7 @@ $id1 = $data['donateID'];
      ?>
   </table>
   <table>
-    <tr><td><button type='button' class="btn btn_ btn-small_"><span style="color:#FFFFFF;text-align:center;"><a style="color:white;" href="#">เพื่มเข้าตระกร้าสินค้า</a></span></button>
-
+    <tr><td><button type='button' class="btn btn_ btn-small_"><span style="color:#FFFFFF;text-align:center;"><a style="color:white;" href="#">I Need Them</a></span></button>
     <button type="button" class="btn btn_ btn-small_" id="Edit"><a style="color:white;" href="<?php echo base_url('index.php/linkquery');?>">กลับสู่หน้าเลือกสินค้า</a></button>
   <?php echo form_close(); ?></td></tr></table>
 <!-- เพิ่มเข้ามา -->
@@ -194,8 +193,16 @@ $id1 = $data['donateID'];
 
       <div class="span8 float">
         <ul class="footer-menu">
-          <li><a href="#" class="current">Home Page</a>|</li>
+          <li><a href="<?php echo base_url('index.php/startweb');?>" class="current">Home Page</a>|</li>
           <li><a href="#">Statistic</a>|</li>
+          <li class="sub-menu"><a href="#">Category</a>
+            <ul>
+              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสาย');?>" id="s6">เครื่องสาย</a></li>
+              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>" id="s7">เครื่องตี</a></li>
+              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>" id="s8">เครื่องดีด</a></li>
+              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>" id="s9">เครื่องสี</a></li>
+              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องเป่า');?>" id="s10">เครื่องเป่า</a></li>
+            </ul>
           <li><a href="#">FAQ</a>|</li>
           <li><a href="#">about</a>|</li>
         </ul>

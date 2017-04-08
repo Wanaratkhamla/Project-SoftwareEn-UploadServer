@@ -31,7 +31,7 @@ if(!isset($error)){
             jQuery('.camera_wrap').camera();
             $("#ccha").keyup(function() {
         			var getcode = $('#ccha').val();
-        			if (getcode == getcode2) {
+        			if (getcode == "0000") {
         					$("#submitlogin").prop('disabled', false);
         			}else{
         					$("#submitlogin").prop('disabled', true);
@@ -100,7 +100,7 @@ if(!isset($error)){
                         </center>
                         <div>
                             <button id="login_lost_btn" type="button" class="btn btn-link"><a href="<?php echo base_url('index.php/forgetpasswordCTRL');?>" style="color:black;">Lost Password?</a></button>
-                            <button type="button" class="btn btn-link"><a href="<?php echo base_url('index.php/linkregister');?>" style="color:black;">Register</a></button>
+                            <button type="button" class="btn btn-link"><a href="<?php echo base_url('index.php/linkregister');?>" style="color:black;" id="registerButton2">Register</a></button>
                         </div>
                     </div>
                   </form>
@@ -178,7 +178,7 @@ if(!isset($error)){
                           <span class="contacts">
                               <h5>เข้าสู่ระบบ</h5>
                               <a href="#" class="btn btn_" role="button" data-toggle="modal" data-target="#login-modal" id="loginmodal"><span style="color:#FFFFFF;text-align:center;">Login</span></a>
-                              <br><br>สมัครสมาชิก : <a href="<?php echo base_url('index.php/linkregister');?>" data-toggle="modal" data-target="#register-modal">register</a>
+                              <br><br>สมัครสมาชิก : <a href="<?php echo base_url('index.php/linkregister');?>" id="registerButton">register</a>
                           </span>
                           <?php
                         }
@@ -408,7 +408,7 @@ if(!isset($error)){
             </div>
             <div class="span8 float">
                 <ul class="footer-menu">
-                    <li><a href="#" class="current">Home Page</a>|</li>
+                    <li><a href="<?php echo base_url('index.php/startweb');?>" class="current">Home Page</a>|</li>
                     <li><a href="#">Statistic</a>|</li>
                     <li><a href="#">FAQ</a>|</li>
                     <li><a href="#">about</a>|</li>

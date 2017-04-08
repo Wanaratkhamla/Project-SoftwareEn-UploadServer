@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('captcha','user','donate','querydonate');
+$autoload['model'] = array('captcha','user','donate','querydonate','Admin');

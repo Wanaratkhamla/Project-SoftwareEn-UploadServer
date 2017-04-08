@@ -58,7 +58,7 @@ class linkquery extends CI_Controller{
   public function QueryDonateByTypeCategoryPage() //CTRL ค้นหาตาม Type ผ่าน Category
   {
     $config = array();
-    $config["base_url"] = base_url() . "index.php/linkquery/QueryDonateByType";
+    $config["base_url"] = base_url() . "index.php/linkquery/QueryDonateByTypeCategoryPage";
     $config["total_rows"] = $this->querydonate->rowcountType($this->session->userdata('word2'));
     $config["per_page"] = 12;
     $config["uri_segment"] = 3;
