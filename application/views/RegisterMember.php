@@ -30,23 +30,39 @@
         };
         reader.readAsDataURL(input.files[0]);
       };
-
       <?php if (isset($word)) {
        $words = $word;
       } ?>
-      var getcode2 = '<?php echo $words;?>';
+      <?php if (isset($captcha2['word'])) {
+       $words2 = $captcha2['word'];
+      } ?>
+      var getcode2 = '<?php echo $words;?>';3
+      var getcode3 = '<?php echo $captcha2['word'];?>';
           $(document).ready(function(){
               jQuery('.camera_wrap').camera();
               $("#ccha").keyup(function() {
-          			var getcode = $('#ccha').val();
-          			if (getcode == "0000") {
+          			var getcode0 = $('#ccha').val();
+          			if (getcode0 == "0000") {
           					$("#submitlogin").prop('disabled', false);
           			}else{
           					$("#submitlogin").prop('disabled', true);
           			}
           		});
+
+               $("#ccha2").keyup(function() {
+          		 	var getcode1 = $('#ccha2').val();
+          		 	if (getcode1 == "0000") {
+          		 			$("#submitregister").prop('disabled', false);
+          		 	}else{
+          		 			$("#submitregister").prop('disabled', true);
+          		 	}
+          		 });
+
               $('#Refreshcaptcha').click(function() {
                  refreshcaptcha();
+              });
+              $('#Refreshcaptcha2').click(function() {
+                 refreshcaptcha2();
               });
               $("#Email").keyup(function() {
           			checkemail();
@@ -58,6 +74,7 @@
                 checkPasswordAndconfirmPassword();
               });
           });
+
     </script>
 
 </head>
@@ -358,8 +375,16 @@
           <option value="6">งานอดิเรกของคุณ</option>
           <option value="7">หนังโปรดของคุณ</option>
       </select><br><input type="text" name="Ansmember" id="Ansmember" placeholder="คำตอบ"><br>
+      <?php if (isset($captcha2['image'])) {
+        $images2 = $captcha2['image'];
+        echo '<br><span id="captcha2" style="color:#ff0000;text-align:center;">'  . $images2 . '</span>';
+      } ?>
+
+      <button type="button" id="Refreshcaptcha2"><img src="<?php echo base_url('recaptcha.png');?>" style="max-height: 20px; max-width: 20px;"/></button>
+      <br>
+      <br><input class="form-control" id="ccha2" type="text" name="ccha" placeholder="รหัสภาพ"><br>
    <!-- วาง Captcha -->
-   <button type="submit" class="btn btn_" id="submitlogin">สมัครสมาชิก</button>
+   <button type="submit" class="btn btn_" id="submitregister" disabled>สมัครสมาชิก</button>
           </form>
           </section>
           </td>

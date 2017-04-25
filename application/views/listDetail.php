@@ -11,7 +11,7 @@ $id1 = $data['donateID'];
 <html>
 <head>
 <title>รายละเอียดของบริจาค</title>
-<link rel="icon" href="<?php echo base_url('Boostap2/img/trumpet.png');?>" type="image/x-icon">
+<link rel="icon" href="Boostap2/img/trumpet.png" type="image/x-icon">
 <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/bootstrap.css');?>" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/responsive.css');?>" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/style.css');?>" type="text/css" media="screen">
@@ -21,7 +21,6 @@ $id1 = $data['donateID'];
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/jquery.ui.totop.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/forms.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('Boostap2/js/function.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('Boostap2/js/bootstrap.js');?>"></script>
 </head>
 <body>
   <header>
@@ -51,13 +50,17 @@ $id1 = $data['donateID'];
 
                                           <li><a href="#">Donate Item</a></li>
                                           <li><a href="#">Statistic</a></li>
-                                          <li class="sub-menu"><a href="#">Category</a>
+                                          <li class="sub-menu"><a href="#" id="Categorydropdown">Category</a>
                                             <ul>
-                                              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสาย');?>" id="s1">เครื่องสาย</a></li>
-                                              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>" id="s2">เครื่องตี</a></li>
-                                              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>" id="s3">เครื่องดีด</a></li>
-                                              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>" id="s4">เครื่องสี</a></li>
-                                              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องเป่า');?>" id="s5">เครื่องเป่า</a></li>
+                                              <li><a href="<?php echo base_url('index.php/linkquery');?>" id="s0">เรียงตามวันที่</a></li>
+                                              <li class="sub-menu"><a href="#" id="typedropdown">เรียงตามประเภท</a>
+                                                <ul>
+                                                  <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>" id="s2">เครื่องตี</a></li>
+                                                  <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>" id="s3">เครื่องดีด</a></li>
+                                                  <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>" id="s4">เครื่องสี</a></li>
+                                                  <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องเป่า');?>" id="s5">เครื่องเป่า</a></li>
+                                                </ul>
+                                              </li>
                                             </ul>
                                           <li><a href="#">FAQ</a></li>
                                           <li class="sub-menu"><a href="#">about</a>
@@ -119,12 +122,17 @@ $id1 = $data['donateID'];
     <tr><td><h5>กว้าง(CM) : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateLength'] ?></span></td></tr>
     <tr><td><h5>ยาว(CM) : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donatewidth'] ?></span></td></tr>
     <tr><td><h5>น้ำหนัก(กิโลกรัม) : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateweight'] ?></span></td></tr>
-    <tr><td><h5>จำนวนชิ้น : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateEA'] ?></span></td></tr>
     <tr><td><h5>สภาพของบริจาค : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donatecondition'] . " " . " % " ?></span></td></tr>
     <tr><td><h5>สี : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donatecolor'] ?></span></td></tr>
     <tr><td><h5>ประเภท : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateType'] ?></span></td></tr>
     <tr><td><h5>รายละเอียดของบริจาค :</h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $data['donateDetail'] ?></span></td></tr>
     <tr><td><h5>ประเภทการส่ง : </h5></td><td>&nbsp;&nbsp;&nbsp;<span><?php echo $send ?></span></td></tr>
+
+    <tr><td><h5>จำนวนชิ้น : </h5></td><td>&nbsp;&nbsp;&nbsp;<select name="donateEA" id="donateEA">
+      <?php for ($i=0; $i <= $data['donateEA']; $i++) { ?>
+        <option value=<?php echo $data['donateEA'] - $i ?>><?php echo $data['donateEA'] - $i ?></option>
+    <?php  } ?>
+    </select></td></tr>
     <?php
         if ($data['donateTypeSendID'] == "3") {
           echo "<tr><td><h5>รายละเอียดการส่ง :</h5></td><td>&nbsp;&nbsp;&nbsp;<span>" . $data['donatesendDetail'] . "</span></td></tr>";
@@ -140,10 +148,12 @@ $id1 = $data['donateID'];
   <!-- เพิ่มเข้ามา -->
   </div>
         </div></div></div></section>
+
         <section id="content" class="main-content">
         <div class="container">
           <div class="row">
               <div class="span12">
+                <h3 style="color:white;">รายการใกล้เคียง</h3>
                   <ul class="thumbnails">
                     <br>
                     <?php if ($data2 == null) {?>
@@ -165,12 +175,13 @@ $id1 = $data['donateID'];
                         <div class="thumbnail">
                             <div class="caption">
                               <a href="<?php echo base_url("index.php/linkquery/showlistdetail?donateid=$data->donateID");?>">
-                                <div class="img-resize"><img id='output' src="<?php echo base_url("image/$data->donatePathIMG"); ?>"  alt=""/></div></a>
+                                <div class="img-resize" id="<?php echo $data->donateID?>"><img id='output' src="<?php echo base_url("image/$data->donatePathIMG"); ?>"  alt=""/></div></a>
                                 <h3><?php echo $data->donateName ?></h3>
                                 <h5>ผู้บริจาค : คุณ<?php echo $data->Fname . " " . $data->Lname ?></h5>
+                                <h5>บริจาค : <?php echo $data->donateTimestamp ?></h5>
                             </div>
                             <div class="thumbnail-pad">
-                                <a href="<?php echo base_url("index.php/linkquery/showlistdetail?donateid=$data->donateID");?>" class="btn btn_">more info</a>
+                                <a href="<?php echo base_url("index.php/linkquery/showlistdetail?donateid=$data->donateID");?>" class="btn btn_" id="<?php echo $data->donateID?>">more info</a>
                             </div>
                         </div>
                     </li>
@@ -188,28 +199,22 @@ $id1 = $data['donateID'];
 
 <!--========================================================================================================-->
 <footer>
-  <div class="container">
-    <div class="row">
-
-      <div class="span8 float">
-        <ul class="footer-menu">
-          <li><a href="<?php echo base_url('index.php/startweb');?>" class="current">Home Page</a>|</li>
-          <li><a href="#">Statistic</a>|</li>
-          <li class="sub-menu"><a href="#">Category</a>
-            <ul>
-              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสาย');?>" id="s6">เครื่องสาย</a></li>
-              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>" id="s7">เครื่องตี</a></li>
-              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>" id="s8">เครื่องดีด</a></li>
-              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>" id="s9">เครื่องสี</a></li>
-              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องเป่า');?>" id="s10">เครื่องเป่า</a></li>
-            </ul>
-          <li><a href="#">FAQ</a>|</li>
-          <li><a href="#">about</a>|</li>
-        </ul>
-        WeShar   &copy;  2017  |   Email : <a rel="nofollow" href="http://www.weshar@kku.com" target="_blank">weshar@kku.com</a>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="span4 float2">
+            </div>
+            <div class="span8 float">
+                <ul class="footer-menu">
+                    <li><a href="<?php echo base_url('index.php/startweb');?>" class="current">Home Page</a>|</li>
+                    <li><a href="#">Statistic</a>|</li>
+                    <li><a href="#">FAQ</a>|</li>
+                    <li><a href="#">about</a>|</li>
+                </ul>
+                WeShar   &copy;  2017  |   Email : <a rel="nofollow" href="http://www.weshar@kku.com" target="_blank">weshar@kku.com</a>
+            </div>
+        </div>
     </div>
-  </div>
 </footer>
+<script type="text/javascript" src="<?php echo base_url('Boostap2/js/bootstrap.js');?>"></script>
 </body>
 </html>

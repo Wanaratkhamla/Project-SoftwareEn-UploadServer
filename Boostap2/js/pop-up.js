@@ -16,9 +16,23 @@
      getcode2 = res.word
      document.getElementById("captcha").innerHTML = res.image;
      $('#ccha').removeAttr('value');
-     $("#submitregister").prop('disabled', true);
+     $("#submitlogin").prop('disabled', true);
      $('#email').removeAttr('value');
      $('#password').removeAttr('value');
+    }
+   });
+ }
+
+ function refreshcaptcha2() {
+   $.ajax({
+     url:"https://10.199.66.227/SoftEn2017/group8/index.php/startweb/refreshcaptchaimage",
+     type: "POST",
+     dataType: 'json',
+     success:function(res){
+     getcode3 = res.word
+     document.getElementById("captcha2").innerHTML = res.image;
+     $('#ccha2').removeAttr('value');
+     $("#submitregister").prop('disabled', true);
     }
    });
  }
@@ -162,7 +176,7 @@ $(function() {
             return false;
               break;
             case "Registerform":
-             var url = "http://localhost/soften/index.php/usercontroller"
+             var url = "https://10.199.66.227/SoftEn2017/group8/index.php/usercontroller"
              var formData = new FormData($(this)[0]);
              $.ajax({
                  url: url,
@@ -188,7 +202,7 @@ $(function() {
                      $("#Errorimage").css("color", "red");
                    }else if (res == 4) {
                      alert("สมัครสมาชิกเสร็จสิ้น รอการยืนยันจากทางเว็บไซต์");
-                     window.location.href="http://localhost/soften/index.php/startweb";
+                     window.location.href="https://10.199.66.227/SoftEn2017/group8/index.php/startweb";
                    }else if (res == 5) {
                      $("#alertmessege").text("กรุณากรอกข้อมูลให้ครบ");
                      $("#alertmessege").css("color", "red");

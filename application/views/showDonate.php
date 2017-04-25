@@ -50,13 +50,17 @@ if(!isset($error)){
 
                                         <li><a href="#">Donate Item</a></li>
                                         <li><a href="#">Statistic</a></li>
-                                        <li class="sub-menu"><a href="#">Category</a>
+                                        <li class="sub-menu"><a href="#" id="Categorydropdown">Category</a>
                                           <ul>
-                                            <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสาย');?>" id="s1">เครื่องสาย</a></li>
-                                            <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>" id="s2">เครื่องตี</a></li>
-                                            <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>" id="s3">เครื่องดีด</a></li>
-                                            <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>" id="s4">เครื่องสี</a></li>
-                                            <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องเป่า');?>" id="s5">เครื่องเป่า</a></li>
+                                            <li><a href="<?php echo base_url('index.php/linkquery');?>" id="s0">เรียงตามวันที่</a></li>
+                                            <li class="sub-menu"><a href="#" id="typedropdown">เรียงตามประเภท</a>
+                                              <ul>
+                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>" id="s2">เครื่องตี</a></li>
+                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>" id="s3">เครื่องดีด</a></li>
+                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>" id="s4">เครื่องสี</a></li>
+                                                <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องเป่า');?>" id="s5">เครื่องเป่า</a></li>
+                                              </ul>
+                                            </li>
                                           </ul>
                                         <li><a href="#">FAQ</a></li>
                                         <li class="sub-menu"><a href="#">about</a>
@@ -106,16 +110,15 @@ if(!isset($error)){
                     <td><form id="search-form" action="<?= base_url() ?>index.php/linkquery/SearchshowDonate" method="GET" accept-charset="utf-8" class="navbar-form" >
                     <div class="search-form">
                     <input type="text" name="keyword"  >
-                    <a href="#" onClick="document.getElementById('search-form').submit()"></a>
+                    <a href="#" onClick="document.getElementById('search-form').submit()" id="submitformsearch"></a>
                     </div></td></tr>
                     <div class="span4">
                     <tr><td></td>
                     <td>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="Typesearch" value="1" size="3">&nbsp;&nbsp;<bold><font size="3">ประเภท</font></bold> &nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="Typesearch" value="2" size="3">&nbsp;&nbsp;<bold><font size="3">ชื่อ</font></bold>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="Typesearch" value="3" size="3" checked>&nbsp;&nbsp;<bold><font size="3">keyword</font></bold>&nbsp;&nbsp;&nbsp;
-
+                    <input type="radio" name="Typesearch" value="1" size="3" id="type">&nbsp;&nbsp;<bold><font size="3">ประเภท</font></bold> &nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="Typesearch" value="2" size="3" id="name">&nbsp;&nbsp;<bold><font size="3">ชื่อ</font></bold>&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="Typesearch" value="3" size="3" id="keyword1" checked>&nbsp;&nbsp;<bold><font size="3">keyword</font></bold>&nbsp;&nbsp;&nbsp;
                     </td></tr>
                     </div>
                     </form>
@@ -140,12 +143,13 @@ if(!isset($error)){
                 <div class="thumbnail">
                     <div class="caption">
                       <a href="<?php echo base_url("index.php/linkquery/showlistdetail?donateid=$data->donateID");?>">
-                        <div class="img-resize"><img id='output' src="<?php echo base_url("image/$data->donatePathIMG"); ?>"  alt=""/></div></a>
+                        <div class="img-resize" id="<?php echo $data->donateID?>"><img id='output' src="<?php echo base_url("image/$data->donatePathIMG"); ?>"  alt=""/></div></a>
                         <h3><?php echo $data->donateName ?></h3>
                         <h5>ผู้บริจาค : คุณ<?php echo $data->Fname . " " . $data->Lname ?></h5>
+                        <h5>บริจาค : <?php echo $data->donateTimestamp ?></h5>
                     </div>
                     <div class="thumbnail-pad">
-                        <a href="<?php echo base_url("index.php/linkquery/showlistdetail?donateid=$data->donateID");?>" class="btn btn_">more info</a>
+                        <a href="<?php echo base_url("index.php/linkquery/showlistdetail?donateid=$data->donateID");?>" class="btn btn_" id="<?php echo $data->donateID?>">more info</a>
                     </div>
                 </div>
             </li>
@@ -172,14 +176,6 @@ if(!isset($error)){
                 <ul class="footer-menu">
                     <li><a href="<?php echo base_url('index.php/startweb');?>" class="current">Home Page</a>|</li>
                     <li><a href="#">Statistic</a>|</li>
-                    <li class="sub-menu"><a href="#">Category</a>
-                      <ul>
-                        <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสาย');?>" id="s6">เครื่องสาย</a></li>
-                        <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>" id="s7">เครื่องตี</a></li>
-                        <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>" id="s8">เครื่องดีด</a></li>
-                        <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>" id="s9">เครื่องสี</a></li>
-                        <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องเป่า');?>" id="s10">เครื่องเป่า</a></li>
-                      </ul>
                     <li><a href="#">FAQ</a>|</li>
                     <li><a href="#">about</a>|</li>
                 </ul>

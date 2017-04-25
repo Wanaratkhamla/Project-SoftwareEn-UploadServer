@@ -16,6 +16,7 @@ class linkregister extends CI_Controller
   public function index()
   {
     $captcha = $this->captcha->CreateCaptcha();
+    $captcha['captcha2'] = $this->captcha->CreateCaptcha();
     $this->load->view('RegisterMember' , $captcha);
   }
 

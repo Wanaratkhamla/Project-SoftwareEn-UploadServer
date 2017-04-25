@@ -9,7 +9,6 @@ function showinput(){
  }
 
 
-
  function openFile() {
      var input = event.target;
      var reader = new FileReader();
@@ -42,7 +41,7 @@ function showinput(){
          }
        }else{
            $("#Email").css("background-color", "#ff6666");
-           $("#Emailerror").text("Password น้อยกว่า 6 อักขระ");
+           $("#Emailerror").text("Email น้อยกว่า 6 อักขระ");
            $("#Emailerror").css("color", "red");
        }
      }

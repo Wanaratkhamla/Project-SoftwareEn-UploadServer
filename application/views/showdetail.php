@@ -10,7 +10,7 @@ if($data['donateTypeSendID'] == "1"){
 <html>
 <head>
 <title>รายละเอียดสินค้า</title>
-<link rel="icon" href="Boostap2/img/trumpet.png" type="image/x-icon">
+<link rel="icon" href="<?php echo base_url('Boostap2/img/trumpet.png');?>" type="image/x-icon">
 <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/bootstrap.css');?>" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/responsive.css');?>" type="text/css" media="screen">
 <link rel="stylesheet" href="<?php echo base_url('Boostap2/css/style.css');?>" type="text/css" media="screen">
@@ -148,7 +148,6 @@ if($data['donateTypeSendID'] == "1"){
           <li><a href="#">Statistic</a>|</li>
           <li class="sub-menu"><a href="#">Category</a>
             <ul>
-              <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสาย');?>" id="s6">เครื่องสาย</a></li>
               <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องตี');?>" id="s7">เครื่องตี</a></li>
               <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องดีด');?>" id="s8">เครื่องดีด</a></li>
               <li><a href="<?php echo base_url('index.php/linkquery/SelectCategory?keyword=เครื่องสี');?>" id="s9">เครื่องสี</a></li>

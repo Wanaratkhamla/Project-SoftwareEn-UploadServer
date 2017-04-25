@@ -14,7 +14,7 @@ class querydonate extends CI_Model{
 
   public function SelectAlldonate($limit, $start) {
         $this->db->limit($limit, $start);
-        $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname');
+        $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname,donateTimestamp');
         $this->db->from('donate');
         $this->db->join('member','donate.IDCard = member.IDCard');
         $this->db->order_by("donateTimestamp", "desc");
@@ -43,7 +43,7 @@ class querydonate extends CI_Model{
    public function SelectdonateType($limit, $start , $keyword)
    {
       $this->db->limit($limit, $start);
-      $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname');
+      $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname,donateTimestamp');
       $this->db->from('donate');
       $this->db->join('member','donate.IDCard = member.IDCard');
       $this->db->like('donateType', $keyword);
@@ -72,7 +72,7 @@ class querydonate extends CI_Model{
    public function SelectdonateName($limit, $start , $keyword)
    {
       $this->db->limit($limit, $start);
-      $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname');
+      $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname,donateTimestamp');
       $this->db->from('donate');
       $this->db->join('member','donate.IDCard = member.IDCard');
       $this->db->like('donateName', $keyword);
@@ -116,7 +116,7 @@ class querydonate extends CI_Model{
    public function SelectdonateKeyword($limit, $start , $keyword)
    {
       $this->db->limit($limit, $start);
-      $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname,donatetype.donateTypeName');
+      $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname,donatetype.donateTypeName,donateTimestamp');
       $this->db->from('donate');
       $this->db->join('member','donate.IDCard = member.IDCard');
       $this->db->join('donatetype','donate.donateTypeSendID = donatetype.donateTypeSendID');
@@ -156,7 +156,7 @@ class querydonate extends CI_Model{
 
    function SelectShowlistdetail($keyword) //select ไว้ให้โชว์ หน้า listdetail
    {
-     $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname');
+     $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname,donateTimestamp');
      $this->db->from('donate');
      $this->db->join('member','donate.IDCard = member.IDCard');
      $this->db->like('donateName', $keyword);
@@ -171,7 +171,7 @@ class querydonate extends CI_Model{
 
    function Selectrowlistdetail($keyword) //select ไว้ให้โชว์ หน้า listdetail
    {
-     $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname');
+     $this->db->select('donateID,donateName,donatePathIMG,member.Fname,member.Lname,donateTimestamp');
      $this->db->from('donate');
      $this->db->join('member','donate.IDCard = member.IDCard');
      $this->db->like('donateName', $keyword);
